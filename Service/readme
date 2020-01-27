@@ -1,3 +1,16 @@
 Learning on this link below.
 
 https://www.codechief.org/article/laravel-6-rest-api-with-passport-tutorial-with-ecommerce-project
+
+
+--- use generage tale ----
+ php artisan migrate:refresh --seed
+
+--- use for fack datas ------
+php artisan tinker
+
+factory(App\Product::class,50)->create()
+
+factory(App\Review::class,50)->create()
+
+exit
