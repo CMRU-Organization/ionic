@@ -14,3 +14,15 @@ factory(App\Product::class,50)->create()
 factory(App\Review::class,50)->create()
 
 exit
+
+----- for testing call service ----
+add Moesif Orign & CORS Changer extention on Chrome then "turn on" it !!
+https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc?hl=en-US
+
+
+---------error - -------------------
+RuntimeException: Personal access client not found. Please create one
+line : $success['token'] =  $user->createToken('MyApp')-> accessToken;
+https://stackoverflow.com/questions/55168808/passport-laravel-createtoken-personal-access-client-not-found
+
+please add manual commna line: php artisan passport:client --personal then add "MyApp" user for root token

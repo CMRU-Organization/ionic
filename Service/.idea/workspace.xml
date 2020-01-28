@@ -7,7 +7,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -98,7 +98,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580108475072</updated>
-      <workItem from="1580108477173" duration="10396000" />
+      <workItem from="1580108477173" duration="11887000" />
+      <workItem from="1580175950883" duration="14871000" />
     </task>
     <servers />
   </component>
@@ -110,14 +111,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580111661325" />
-    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1580108478249">
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1580175955385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580108478249" />
-    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1580118637989">
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580175955385" />
+    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1580176913696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1580118637989" />
+    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1580176913696" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1580108650642">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
