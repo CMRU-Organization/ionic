@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#bt001").click(function(){
+                $.get("http://127.0.0.1:8000/api/products/4", function(data){
+                    console.log(data);
+                });
+            });
+            $("#bt002").click(function(){
+                $.post("http://localhost:8000/api/login",
+                    {
+                        email: "mcassin@example.com",
+                        password: "password"
+                    },
+                    function(data){
+                        console.log(data);
+                 });
+            });
+            $("#bt003").click(function(){
+                $.get("http://127.0.0.1:8000/api/products", function(data){
+                    console.log(data);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<button id="bt001">http://127.0.0.1:8000/api/products/4</button>
+<button id="bt002">http://localhost:8000/api/login</button>
+<button id="bt003">http://127.0.0.1:8000/api/products</button>
+
+</body>
+</html>
