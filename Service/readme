@@ -26,3 +26,12 @@ line : $success['token'] =  $user->createToken('MyApp')-> accessToken;
 https://stackoverflow.com/questions/55168808/passport-laravel-createtoken-personal-access-client-not-found
 
 please add manual commna line: php artisan passport:client --personal then add "MyApp" user for root token
+
+
+
+------- how to generate passport ---------
+https://laravel.com/docs/6.x/passport
+
+
+------- install Postman extention for testing testing api --------
+
