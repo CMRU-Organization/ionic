@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<meta name="_token" id="_token" content="{{csrf_token()}}" />
+<meta name="_token" id="_token" content="{{ csrf_token() }}"/>
 <head>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -8,8 +8,16 @@
         $(document).ready(function () {
 
             $("#bt001").click(function () {
-                $.get("http://127.0.0.1:8000/api/products/4", function (data) {
-                    console.log(data);
+                // $.get("http://127.0.0.1:8000/api/products/4", function (data) {
+                //     console.log(data);
+                // });
+                $.ajax({
+                    url : "http://127.0.0.1:8000/api/products/4",
+                    method:"get",
+                    data : {"_token":"{{ csrf_token() }}"},  //pass the CSRF_TOKEN()
+                    success:function(data){
+                        console.log(data);
+                    }
                 });
             });
             $("#bt002").click(function () {
@@ -20,18 +28,24 @@
                     },
                     function (data) {
                         console.log(data);
-                        $('#_token')[0].content = data.data.token;
+                        console.log(data.data.token);
+                        localStorage.setItem('token', data.data.token);
+                        $('meta[name="_token"]')[0].content = data.data.token;
                     });
             });
 
             $("#bt003").click(function () {
-
-                var aa = $('#_token')[0].content;
-
-                $.get("http://127.0.0.1:8000/api/products", function (data) {
-                    console.log(data);
+                $.ajax({
+                    url : "http://127.0.0.1:8000/api/products",
+                    method:"get",
+                    data : {"_token":"{{ csrf_token() }}"},  //pass the CSRF_TOKEN()
+                    success:function(data){
+                        console.log(data);
+                    }
                 });
+
             });
+
 
 
         });
