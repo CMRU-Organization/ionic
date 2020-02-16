@@ -25,25 +25,25 @@ class AuthController extends BaseController
         }
     }
 
-    public function register(Request $request)
-    {
-        $input = $request->all();
-
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
-            'c_password' => 'required|same:password',
-        ]);
-        if ($validator->fails()) {
-            return $this->sendError('Validation error.', $validator->errors(), 400);
-        }
-
-        $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
-        $token = $user->createToken('RestApi')->accessToken;
-        return $this->sendResponse($token);
-    }
+//    public function register(Request $request)
+//    {
+//        $input = $request->all();
+//
+//        $validator = Validator::make($input, [
+//            'name' => 'required',
+//            'email' => 'required|email|unique:users',
+//            'password' => 'required',
+//            'c_password' => 'required|same:password',
+//        ]);
+//        if ($validator->fails()) {
+//            return $this->sendError('Validation error.', $validator->errors(), 400);
+//        }
+//
+//        $input['password'] = bcrypt($input['password']);
+//        $user = User::create($input);
+//        $token = $user->createToken('RestApi')->accessToken;
+//        return $this->sendResponse($token);
+//    }
 
     public function logout()
     {
