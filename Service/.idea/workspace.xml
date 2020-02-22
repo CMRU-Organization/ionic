@@ -135,8 +135,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Providers" />
     <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\CmruRespos\ionic\Service\app\Http\Controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\CmruRespos\ionic\Service\app\Providers" />
+      <recent name="F:\CmruRespos\ionic\Service\app" />
+      <recent name="F:\CmruRespos\ionic\Service\database\migrations" />
+      <recent name="F:\CmruRespos\ionic\Service\database\factories" />
+      <recent name="F:\CmruRespos\ionic\Service\database\seeds" />
+    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -162,7 +174,13 @@
       <updated>1581531464589</updated>
       <workItem from="1581531468686" duration="317000" />
       <workItem from="1581757542251" duration="9381000" />
-      <workItem from="1581853148213" duration="3690000" />
+      <workItem from="1581853148213" duration="4553000" />
+      <workItem from="1581948133184" duration="868000" />
+      <workItem from="1582034046024" duration="439000" />
+      <workItem from="1582045196751" duration="1367000" />
+      <workItem from="1582345809741" duration="272000" />
+      <workItem from="1582379537897" duration="3396000" />
+      <workItem from="1582383965032" duration="588000" />
     </task>
     <servers />
   </component>
@@ -170,13 +188,15 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1371" y="291" key="FileChooserDialogImpl" timestamp="1581764841417">
-      <screen x="-1920" y="123" width="1536" height="824" />
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1582383455610">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-1371" y="291" key="FileChooserDialogImpl/0.0.1536.824/-1920.123.1536.824@-1920.123.1536.824" timestamp="1581764841417" />
-    <state x="-1457" y="267" width="609" height="536" key="find.popup" timestamp="1581864742663">
-      <screen x="-1920" y="123" width="1536" height="824" />
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1582383455610" />
+    <state x="463" y="144" width="609" height="536" key="find.popup" timestamp="1582380694544">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-1457" y="267" width="609" height="536" key="find.popup/0.0.1536.824/-1920.123.1536.824@-1920.123.1536.824" timestamp="1581864742663" />
+    <state x="463" y="144" width="609" height="536" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1582380694544" />
   </component>
 </project>
