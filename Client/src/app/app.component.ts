@@ -60,8 +60,8 @@ export class AppComponent {
   }
 
   logout() {
-    alert("Logout");
+    console.log("Logout");
     this.authService.logout();
-    this.navCtrl.navigateRoot('/home-results');
+    this.navCtrl.navigateRoot('/');
   }
 }

@@ -52,7 +52,10 @@ export class AuthService {
         return this.http.get(this.env.API_URL + '/logout', { headers: headers })
             .pipe(
                 tap(data => {
-                    this.storage.remove("token");
+                    console.log("success logout");
+                    console.log("success logout"+ this.storage.getItem("token"));
+                    this.storage.remove('token');
+
                     this.isLoggedIn = false;
                     delete this.token;
                     return data;

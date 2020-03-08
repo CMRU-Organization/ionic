@@ -62,3 +62,9 @@ ___
 <br>
 **Facebook Page:**
 [https://www.facebook.com/ionicthemecom](https://www.facebook.com/ionicthemecom)
+
+
+
+***run cordova browser ********
+ionic cordova run browser
+https://forum.ionicframework.com/t/uncaught-in-promise-cordova-not-available-problem-why/122171
