@@ -104,7 +104,7 @@ export class LoginPage implements OnInit {
   }
 
   goToHome() {
-
+    alert("Login");
     this.authService.login(/*form.value.email*/"admin@mail.com", /*form.value.password*/"password").subscribe(
         data => {
           this.alertService.presentToast("Logged In");
@@ -114,7 +114,7 @@ export class LoginPage implements OnInit {
         },
         () => {
           this.dismissLogin();
-          this.navCtrl.navigateRoot('/dashboard');
+          this.navCtrl.navigateRoot('/home-results');
         }
     );
 
