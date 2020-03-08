@@ -20,7 +20,7 @@ export class AuthService {
     ) { }
 
     login(email: String, password: String) {
-        return this.http.post(this.env.API_URL + 'auth/login',
+        return this.http.post(this.env.API_URL + '/login',
             {email: email, password: password}
         ).pipe(
             tap(token => {
@@ -49,7 +49,7 @@ export class AuthService {
             'Authorization': this.token["token_type"]+" "+this.token["access_token"]
         });
 
-        return this.http.get(this.env.API_URL + 'auth/logout', { headers: headers })
+        return this.http.get(this.env.API_URL + '/logout', { headers: headers })
             .pipe(
                 tap(data => {
                     this.storage.remove("token");
@@ -65,7 +65,7 @@ export class AuthService {
             'Authorization': this.token["token_type"]+" "+this.token["access_token"]
         });
 
-        return this.http.get<User>(this.env.API_URL + 'auth/user', { headers: headers })
+        return this.http.get<User>(this.env.API_URL + '/user', { headers: headers })
             .pipe(
                 tap(user => {
                     return user;

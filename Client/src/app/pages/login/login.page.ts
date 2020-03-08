@@ -137,6 +137,7 @@ export class LoginPage implements OnInit {
   }
 
   login(form: NgForm) {
+    alert(123);
     this.authService.login(/*form.value.email*/"admin@mail.com",/* form.value.password*/"password").subscribe(
         data => {
           this.alertService.presentToast("Logged In");
