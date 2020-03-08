@@ -1,9 +1,8 @@
-<!--
 <ion-content padding class="animated fadeIn login auth-page">
   <div class="theme-bg"></div>
   <div class="auth-content">
 
-    &lt;!&ndash; Logo &ndash;&gt;
+    <!-- Logo -->
     <div padding-horizontal text-center class="animated fadeInDown">
       <div class="logo"></div>
       <h4 no-margin>
@@ -13,7 +12,7 @@
       </h4>
     </div>
 
-    &lt;!&ndash; Login form &ndash;&gt;
+    <!-- Login form -->
     <form [formGroup]="onLoginForm" class="list-form">
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
@@ -60,64 +59,7 @@
         </ion-text>
       </p>
 
-      <ion-grid class="btn-group">
-        <ion-row>
-          <ion-col size="4">
-            <ion-button shape="round" expand="full" color="secondary">
-              <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col size="4">
-            <ion-button shape="round" expand="full" color="secondary">
-              <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col size="4">
-            <ion-button shape="round" expand="full" color="secondary">
-              <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-    </div>
-
-    &lt;!&ndash; Other links &ndash;&gt;
-    <div text-center margin-top>
-      <span (click)="goToRegister()" class="paz" tappable>
-        <ion-text color="light">
-          New here? <strong>Sign Up</strong>
-        </ion-text>
-      </span>
     </div>
 
   </div>
-</ion-content>-->
-
-<ion-header>
-<ion-toolbar>
-  <ion-button color="light" (click)="dismissLogin()">Close</ion-button>
-  <ion-title>Login</ion-title>
-</ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-  <form #form="ngForm" (ngSubmit)="login(form)" method="post">
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input ngModel type="email" name="email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input ngModel type="password" name="password"></ion-input>
-    </ion-item>
-
-    <p text-right>Forgot Password?</p>
-
-    <ion-button type="submit" expand="full" color="primary">Login</ion-button>
-  </form>
-
-  <p text-center>Don't have a account?</p>
-  <ion-button expand="full" color="danger" (click)="registerModal()">Register</ion-button>
 </ion-content>

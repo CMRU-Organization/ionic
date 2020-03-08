@@ -1,8 +1,16 @@
-/*
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
+import {
+  NavController,
+  MenuController,
+  ToastController,
+  AlertController,
+  LoadingController,
+  ModalController
+} from '@ionic/angular';
+import {AuthService} from "../../services/auth.service";
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +26,10 @@ export class LoginPage implements OnInit {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private alertService: AlertService,
+    private modalController: ModalController
   ) { }
 
   ionViewWillEnter() {
@@ -87,58 +98,14 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateRoot('/register');
   }
 
-  goToHome() {
-    this.navCtrl.navigateRoot('/home-results');
-  }
-
-
-
-}
-*/
-
-
-
-import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
-import { RegisterPage } from '../register/register.page';
-import { NgForm } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
-import { AlertService } from 'src/app/services/alert.service';
-
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
-})
-export class LoginPage implements OnInit {
-
-  constructor(
-      private modalController: ModalController,
-      private authService: AuthService,
-      private navCtrl: NavController,
-      private alertService: AlertService
-  ) { }
-
-  ngOnInit() {
-  }
-
-  // Dismiss Login Modal
+// Dismiss Login Modal
   dismissLogin() {
     this.modalController.dismiss();
   }
 
-  // On Register button tap, dismiss login modal and open register modal
-  async registerModal() {
-    this.dismissLogin();
-    const registerModal = await this.modalController.create({
-      component: RegisterPage
-    });
-    return await registerModal.present();
-  }
+  goToHome() {
 
-  login(form: NgForm) {
-    alert(123);
-    this.authService.login(/*form.value.email*/"admin@mail.com",/* form.value.password*/"password").subscribe(
+    this.authService.login(/*form.value.email*/"admin@mail.com", /*form.value.password*/"password").subscribe(
         data => {
           this.alertService.presentToast("Logged In");
         },
@@ -150,5 +117,8 @@ export class LoginPage implements OnInit {
           this.navCtrl.navigateRoot('/dashboard');
         }
     );
+
+    //this.navCtrl.navigateRoot('/home-results');
   }
+
 }
