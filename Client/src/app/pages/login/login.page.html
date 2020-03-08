@@ -1,8 +1,9 @@
+<!--
 <ion-content padding class="animated fadeIn login auth-page">
   <div class="theme-bg"></div>
   <div class="auth-content">
 
-    <!-- Logo -->
+    &lt;!&ndash; Logo &ndash;&gt;
     <div padding-horizontal text-center class="animated fadeInDown">
       <div class="logo"></div>
       <h4 no-margin>
@@ -12,7 +13,7 @@
       </h4>
     </div>
 
-    <!-- Login form -->
+    &lt;!&ndash; Login form &ndash;&gt;
     <form [formGroup]="onLoginForm" class="list-form">
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
@@ -81,7 +82,7 @@
 
     </div>
 
-    <!-- Other links -->
+    &lt;!&ndash; Other links &ndash;&gt;
     <div text-center margin-top>
       <span (click)="goToRegister()" class="paz" tappable>
         <ion-text color="light">
@@ -91,4 +92,32 @@
     </div>
 
   </div>
+</ion-content>-->
+
+<ion-header>
+<ion-toolbar>
+  <ion-button color="light" (click)="dismissLogin()">Close</ion-button>
+  <ion-title>Login</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input ngModel type="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input ngModel type="password" name="password"></ion-input>
+    </ion-item>
+
+    <p text-right>Forgot Password?</p>
+
+    <ion-button type="submit" expand="full" color="primary">Login</ion-button>
+  </form>
+
+  <p text-center>Don't have a account?</p>
+  <ion-button expand="full" color="danger" (click)="registerModal()">Register</ion-button>
 </ion-content>

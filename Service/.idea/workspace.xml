@@ -135,7 +135,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Providers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
@@ -181,6 +181,7 @@
       <workItem from="1582345809741" duration="272000" />
       <workItem from="1582379537897" duration="3396000" />
       <workItem from="1582383965032" duration="588000" />
+      <workItem from="1583653353512" duration="740000" />
     </task>
     <servers />
   </component>
