@@ -25,20 +25,20 @@ export class AppComponent {
   ) {
     this.appPages = [
       {
-        title: 'Home',
+        title: 'ผลการเรียน',
         url: '/home-results',
         direct: 'root',
         icon: 'home'
       },
       {
-        title: 'About',
+        title: 'ข่าวประชาสัมพันธ์',
         url: '/about',
         direct: 'forward',
         icon: 'information-circle-outline'
       },
 
       {
-        title: 'App Settings',
+        title: 'ตั้งค่า',
         url: '/settings',
         direct: 'forward',
         icon: 'cog'

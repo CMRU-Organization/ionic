@@ -93,7 +93,6 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  // // //
   goToRegister() {
     this.navCtrl.navigateRoot('/register');
   }
@@ -104,7 +103,7 @@ export class LoginPage implements OnInit {
   }
 
   goToHome() {
-    alert("Login");
+    console.log("Login..");
     this.authService.login(/*form.value.email*/"admin@mail.com", /*form.value.password*/"password").subscribe(
         data => {
           this.alertService.presentToast("Logged In");
@@ -117,8 +116,6 @@ export class LoginPage implements OnInit {
           this.navCtrl.navigateRoot('/home-results');
         }
     );
-
-    //this.navCtrl.navigateRoot('/home-results');
   }
 
 }
