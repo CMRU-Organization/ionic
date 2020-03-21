@@ -156,7 +156,7 @@ ion-item {
         height: 60px;
         margin: 20px auto 8px;
         border-radius: 10%;
-        background: url("/assets/img/cmru-logo-min.png") no-repeat;
+        background: url("/assets/icon/cmru-logo-min.png") no-repeat;
         background-size: 78%;
       }
   
@@ -206,4 +206,10 @@ ion-item {
     ion-icon {
       margin-bottom: -2px;
     }
+  }
+  .error-text-center{
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }

@@ -15,6 +15,7 @@
 
     <!-- Login form -->
     <form [formGroup]="onLoginForm" class="list-form">
+
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
           <ion-icon name="mail" item-start></ion-icon>
@@ -41,13 +42,13 @@
         </ion-text>
         </p>
     </form>
-
-    <p text-right tappable (click)="forgotPass()" class="paz">
-      <ion-text color="light">
-        <strong>Forgot Pass?</strong>
-      </ion-text>
-    </p>
-
+    <div class="error-text-center">
+      <ion-label ion-text color="warning">
+        <ion-text color="warning">
+          {{onLoginForm.value.errorLogin}}
+        </ion-text>
+      </ion-label>
+    </div>
     <div>
       <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="goToHome()" [disabled]="!onLoginForm.valid" tappable>
         <ion-icon name="log-in"></ion-icon>

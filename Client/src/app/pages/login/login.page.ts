@@ -44,7 +44,8 @@ export class LoginPage implements OnInit {
       ])],
       'password': [null, Validators.compose([
         Validators.required
-      ])]
+      ])],
+      'errorLogin': [null]
     });
   }
 
@@ -104,12 +105,13 @@ export class LoginPage implements OnInit {
 
   goToHome() {
     console.log("Login..");
-    this.authService.login(/*form.value.email*/"admin@mail.com", /*form.value.password*/"password").subscribe(
+    this.authService.login(this.onLoginForm.value.email, this.onLoginForm.value.password).subscribe(
         data => {
           this.alertService.presentToast("Logged In");
         },
         error => {
           console.log(error);
+          this.onLoginForm.value.errorLogin = "Username or password not correct";
         },
         () => {
           this.dismissLogin();
