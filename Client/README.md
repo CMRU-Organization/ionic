@@ -115,4 +115,12 @@ https://nextflow.in.th/2017/solve-error-could-not-find-an-installed-version-of-g
 if error
 No installed build tools found. Install the Android build tools version 19.1.0 or higher
 
+Example result success
+BUILD SUCCESSFUL in 1m 0s
+46 actionable tasks: 46 executed
+Built the following apk(s):
+        F:\CmruRespos\ionic\Client\platforms\android\app\build\outputs\apk\debug\app-debug.apk
+
+
 ****
+
