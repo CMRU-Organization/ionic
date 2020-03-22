@@ -16,32 +16,32 @@
     <!-- Login form -->
     <form [formGroup]="onLoginForm" class="list-form">
 
-      <ion-item no-padding class="animated fadeInUp">
-        <ion-label position="floating">
-          <ion-icon name="mail" item-start></ion-icon>
-          Email
-        </ion-label>
-        <ion-input color="secondary" type="email" formControlName="email"></ion-input>
-      </ion-item>
-      <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
-        <ion-text color="warning">
-          Required Field
-        </ion-text>
-      </p>
+    <ion-item no-padding class="animated fadeInUp">
+      <ion-label position="floating">
+        <ion-icon name="mail" item-start></ion-icon>
+        Email
+      </ion-label>
+      <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
+      <ion-text color="warning">
+        Required Field
+      </ion-text>
+    </p>
 
-      <ion-item no-padding class="animated fadeInUp">
-        <ion-label position="floating">
-          <ion-icon name="lock" item-start></ion-icon>
-          Password
-        </ion-label>
-        <ion-input color="secondary" type="password" formControlName="password"></ion-input>
-      </ion-item>
-      <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
-        <ion-text color="warning">
-          Required Field
-        </ion-text>
-        </p>
-    </form>
+    <ion-item no-padding class="animated fadeInUp">
+      <ion-label position="floating">
+        <ion-icon name="lock" item-start></ion-icon>
+        Password
+      </ion-label>
+      <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
+      <ion-text color="warning">
+        Required Field
+      </ion-text>
+    </p>
+  </form>
     <div class="error-text-center">
       <ion-label ion-text color="warning">
         <ion-text color="warning">

@@ -46,7 +46,7 @@ export class AuthService {
 
     logout() {
         const headers = new HttpHeaders({
-            'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+            'Authorization': "Bearer "+this.token.data
         });
 
         return this.http.get(this.env.API_URL + '/logout', { headers: headers })
@@ -65,10 +65,10 @@ export class AuthService {
 
     user() {
         const headers = new HttpHeaders({
-            'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+            'Authorization': "Bearer "+this.token.data
         });
 
-        return this.http.get<User>(this.env.API_URL + '/user', { headers: headers })
+        return this.http.get<any>(this.env.API_URL + '/profile ', { headers: headers })
             .pipe(
                 tap(user => {
                     return user;

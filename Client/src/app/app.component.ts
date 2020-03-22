@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { Pages } from './interfaces/pages';
 import {AuthService} from "./services/auth.service";
+import {NativeStorage} from "@ionic-native/native-storage/ngx";
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,16 @@ import {AuthService} from "./services/auth.service";
 export class AppComponent {
 
   public appPages: Array<Pages>;
+  public name:any;
+  public email:any;
 
   constructor(
       private authService: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+      private storage: NativeStorage,
   ) {
     this.appPages = [
       {
@@ -44,6 +48,9 @@ export class AppComponent {
         icon: 'cog'
       }
     ];
+
+    this.name =  "Testing name";
+    this.email =  "Testing email";
 
     this.initializeApp();
   }

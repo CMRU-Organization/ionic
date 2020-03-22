@@ -11,6 +11,7 @@ import {
 } from '@ionic/angular';
 import {AuthService} from "../../services/auth.service";
 import {AlertService} from "../../services/alert.service";
+import {NativeStorage} from "@ionic-native/native-storage/ngx";
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private alertService: AlertService,
+    private storage: NativeStorage,
     private modalController: ModalController
   ) { }
 
@@ -114,6 +116,8 @@ export class LoginPage implements OnInit {
           this.onLoginForm.value.errorLogin = "Username or password not correct";
         },
         () => {
+          this.storage.setItem('email', this.onLoginForm.value.email)
+
           this.dismissLogin();
           this.navCtrl.navigateRoot('/home-results');
         }
