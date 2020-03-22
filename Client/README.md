@@ -68,3 +68,51 @@ ___
 ***run cordova browser ********
 ionic cordova run browser
 https://forum.ionicframework.com/t/uncaught-in-promise-cordova-not-available-problem-why/122171
+
+
+
+
+***build apk ***
+
+https://forum.ionicframework.com/t/build-done-but-could-not-see-apk-why/120603/2
+You will not see your APK File unless you build it with Cordova Android not with Ionic Serve.
+
+If you didnt add your Android Platform please do:
+
+ionic cordova platform add android
+after that you have to do this for a debug release:
+
+ionic cordova build android
+or this for a production release:
+
+ionic cordova build android --prod --release
+After that you will find your APK file in this path:
+
+platforms\android\build\outputs\apk
+
+Please Note that it will take time depend on your envrioment.
+So wait until it says it is finished.
+It will also tell you the location of your APK file at the end.
+
+****
+check require
+Run ionic cordova requirements please.
+
+install before
+android studio first then set path
+
+ANDROID_HOME
+C:\Users\vit\AppData\Local\Android\Sdk
+
+if require check failed for JDK 1.8 or greater
+https://www.oracle.com/java/technologies/javase-jdk8-downloads.html
+
+You should set it with C:\Program Files\Java\jdk1.8.0_12.
+\bin is not required.
+
+https://nextflow.in.th/2017/solve-error-could-not-find-an-installed-version-of-gradle-either-in-android-studio-thai/
+
+if error
+No installed build tools found. Install the Android build tools version 19.1.0 or higher
+
+****
