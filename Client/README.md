@@ -121,6 +121,13 @@ BUILD SUCCESSFUL in 1m 0s
 Built the following apk(s):
         F:\CmruRespos\ionic\Client\platforms\android\app\build\outputs\apk\debug\app-debug.apk
 
+cordova platform list
+Installed platforms:
+  android 7.0.0
+Available platforms:
+  browser ~5.0.1
+  ios ~4.5.4
+.....
 
 ****
 
