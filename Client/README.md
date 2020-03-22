@@ -66,10 +66,9 @@ ___
 
 
 ***run cordova browser ********
+ionic cordova platform add browser
 ionic cordova run browser
 https://forum.ionicframework.com/t/uncaught-in-promise-cordova-not-available-problem-why/122171
-
-
 
 
 ***build apk ***
@@ -81,6 +80,8 @@ If you didnt add your Android Platform please do:
 
 ionic cordova platform add android
 after that you have to do this for a debug release:
+
+
 
 ionic cordova build android
 or this for a production release:
