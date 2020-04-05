@@ -132,3 +132,36 @@ Available platforms:
 
 ****
 
+
+
+
+connect your device by usb. Then on your CLI try typing adb devices if a device is listed, run cordova run android.
+If nothing appears on adb devices, go to settings on your phone, developer settings, and activate developer mode and usb debugging. You may need to re-plug your device after activating those settings.
+
+This way you can test your app directly on your device.
+For iphone just plug and cordova run ios
+
+>>>>>>
+Steps for MIUI 9 and Above:
+
+Settings -> Additional Settings -> Developer options ->
+
+Turn off "MIUI optimization" and Restart
+
+Turn On "USB Debugging"
+
+Turn On "Install via USB"
+
+Set USB Configuration to Charging
+
+Turn On "install via USB
+
+MTP(Media Transfer Protocol) is the default mode.
+Works even in MTP in some cases
+
+>>>>
+$ cordova plugin add cordova-plugin-whitelist
+$ cordova prepare
+
+>>>>>
+ionic cordova run android -l -c --native-run
