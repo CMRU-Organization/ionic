@@ -16,6 +16,10 @@ class AuthController extends BaseController
             'password' => request('password')
         ];
 
+
+
+
+
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $token = $user->createToken('RestApi')->accessToken;

@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="047d4dda-37ea-43bd-8b79-07f2f602ccd5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/src/app/services/env.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/app/services/env.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rest-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rest-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MOBILE_STUDENTALLINFO.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MOBILE_STUDENTGRADES.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MOBILE_STUDENTINFO.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MOBILE_STUDENTLOGIN.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MOBILE_STUDENTSTATUS.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MOBILE_STUDENTLOGIN.xls" beforeDir="false" afterPath="$PROJECT_DIR$/../MOBILE_STUDENTLOGIN.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MOBILE_STUDENTSTATUS.xls" beforeDir="false" afterPath="$PROJECT_DIR$/../MOBILE_STUDENTSTATUS.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +154,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
@@ -205,6 +212,11 @@
       <workItem from="1584856468053" duration="1916000" />
       <workItem from="1586068551314" duration="276000" />
       <workItem from="1586069132499" duration="1364000" />
+      <workItem from="1586102621887" duration="609000" />
+      <workItem from="1586143754281" duration="943000" />
+      <workItem from="1586148107783" duration="905000" />
+      <workItem from="1586225071358" duration="648000" />
+      <workItem from="1586596753428" duration="5010000" />
     </task>
     <servers />
   </component>
@@ -216,11 +228,11 @@
       <screen x="-1920" y="123" width="1536" height="824" />
     </state>
     <state x="-1559" y="195" key="#Notifications/0.0.1536.824/-1920.123.1536.824@-1920.123.1536.824" timestamp="1584767296754" />
-    <state x="-1234" y="335" key="FileChooserDialogImpl" timestamp="1586070506466">
+    <state x="-1234" y="335" key="FileChooserDialogImpl" timestamp="1586225108501">
       <screen x="-1920" y="123" width="1920" height="1040" />
     </state>
     <state x="-1371" y="291" key="FileChooserDialogImpl/0.0.1536.824/-1920.123.1536.824@-1920.123.1536.824" timestamp="1584767376098" />
-    <state x="-1234" y="335" key="FileChooserDialogImpl/0.0.1536.824/-1920.123.1920.1040@-1920.123.1920.1040" timestamp="1586070506466" />
+    <state x="-1234" y="335" key="FileChooserDialogImpl/0.0.1536.824/-1920.123.1920.1040@-1920.123.1920.1040" timestamp="1586225108501" />
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1582383455610" />
     <state x="-1643" y="179" key="SettingsEditor" timestamp="1584767377207">
       <screen x="-1920" y="123" width="1536" height="824" />

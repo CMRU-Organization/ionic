@@ -133,7 +133,8 @@ As default tests are configured to work with travis when you push commit to gith
 If you want to run tests locally go to `phpunit.xml` file in root directory and change `DB_CONNECTION` value to `sqlite
 `.<br>
 Then as normally run command `./vendor/bin/phpunit`.<br><br>
-<small>Remember to change that value back for `testing` when you push repo to github, otherwize your commit test will
+<small>Remember to change that value back for `testing` when
+ you push repo to github, otherwize your commit test will
  fail.</small>
 
 

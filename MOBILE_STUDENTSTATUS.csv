@@ -1,0 +1,24 @@
+﻿STUDENTSTATUS,STUDENTSTATUS,10,ปกติ,Regular,ปกติ,Regular
+STUDENTSTATUS,STUDENTSTATUS,11,รักษาสภาพนักศึกษา,Student Status  Maintained,รักษาสภาพ,Student Status  Maintained
+STUDENTSTATUS,STUDENTSTATUS,12,ลาพักการเรียน,SUSPEND,ลาพัก,SUSPEND
+STUDENTSTATUS,STUDENTSTATUS,14,ให้พักการเรียน,,ให้พัก,
+STUDENTSTATUS,STUDENTSTATUS,40,สำเร็จการศึกษา,GRADUATE,จบการศึกษา,GRADUATE
+STUDENTSTATUS,STUDENTSTATUS,41,สิ้นสุดโครงการ,End of Project,สิ้นสุดโครงการ,End of Project
+STUDENTSTATUS,STUDENTSTATUS,42,เรียนครบหลักสูตร รออนุมัติสำเร็จการศึกษา,-,เรียนครบหลักสูตร รออนุมัติสำเร็จการศึกษา,-
+STUDENTSTATUS,STUDENTSTATUS,60,ลาออก,RESIGN,ลาออก,Resign
+STUDENTSTATUS,STUDENTSTATUS,62,ให้ออก,RESIGN,ให้ออก,Resign
+STUDENTSTATUS,STUDENTSTATUS,64,โอนย้ายประเภท (เกรดไม่ครบ),Transfer,โอนย้ายประเภท,Transfer
+STUDENTSTATUS,STUDENTSTATUS,65,โอนย้ายประเภท (เกรดครบ),Transfer,โอนย้ายประเภท,Transfer
+STUDENTSTATUS,STUDENTSTATUS,66,ย้ายสถานศึกษา,Transfer,ย้ายสถานศึกษา,Transfer
+STUDENTSTATUS,STUDENTSTATUS,70,พ้นสถานภาพนักศึกษา,RETIRE,พ้นสภาพ,Retire
+STUDENTSTATUS,STUDENTSTATUS,71,พ้นสถานภาพนักศึกษา (ขาดการติดต่อ),RETIRE,พ้นสภาพ(ขาดการติดต่อ),Retire
+STUDENTSTATUS,STUDENTSTATUS,72,พ้นสถานภาพนักศึกษาตามระเบียบทางการเงิน,RETIRE,พ้นสภาพการเงิน,Retire
+STUDENTSTATUS,STUDENTSTATUS,73,พ้นสภาพตามข้อบังคับว่าด้วยการประเมินผลการศึกษา,RETIRE,พ้นสภาพข้อบังคับ,Retire
+STUDENTSTATUS,STUDENTSTATUS,74,พ้นสภาพนักศึกษา(เนื่องจากครบระยะเวลาศึกษา),RETIRE,พ้นสภาพครบระยะศึกษา,Retire
+STUDENTSTATUS,STUDENTSTATUS,75,ขาดหลักฐาน (ให้ติดต่อสำนักทะเบียน),RETIRE,พ้นสภาพ(ขาดหลักฐาน),Retire
+STUDENTSTATUS,STUDENTSTATUS,76,พ้นสภาพนักศึกษาหลักฐานไม่ถูกต้อง / ไม่ครบ,RETIRE,พ้นสภาพหลักฐานไม่ถูกต้อง / ไม่ครบ,Retire
+STUDENTSTATUS,STUDENTSTATUS,77,ค้างชำระค่าธรรมเนียมหอพัก (ให้ติดต่อสำนักทะเบียน),RETIRE,ค้างชำระค่าหอพัก,Retire
+STUDENTSTATUS,STUDENTSTATUS,85,เสียชีวิต,DEATH,เสียชีวิต,DEATH
+STUDENTSTATUS,STUDENTSTATUS,90,ยังไม่มารายงานตัว,-,ไม่รายงานตัว,-
+STUDENTSTATUS,STUDENTSTATUS,91,สละสิทธิ์รายงานตัว,-,สละสิทธิ์รายงานตัว,-
+STUDENTSTATUS,STUDENTSTATUS,92,ชำระค่าธรรมเนียมแล้วรอยื่นเอกสารรายงานตัว,-,ชำระค่าธรรมเนียมแล้วรอยื่นเอกสารรายงานตัว,-
