@@ -23,9 +23,9 @@ class AuthController extends BaseController
         } else {
 
             //checking login oracle
-            $username = "SYSTEM";
-            $password = "password";
-            $db = "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)))(CONNECT_DATA=(SID=TEST01)))";
+            $username = env('ORACLE_DB_USERNAME');
+            $password = env('ORACLE_DB_PASSWORD');
+            $db = env('ORACLE_DB_CON');
             if ($c = OCILogon($username, $password, $db, 'utf8')) {
                 echo "Successfully connected to Oracle.\n";
                 $query = "select * from SYSTEM.MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
