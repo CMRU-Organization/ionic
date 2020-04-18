@@ -14,9 +14,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Rafał Kucharski',
-            'email' => 'admin@mail.com',
-            'email_verified_at' => now(),
+            'userid' => '199258',
+            'studentcode' => '58161819',
+            'prefixname' => 'นางสาว',
+            'studentname' => 'ภาวิณี',
+            'studentsurname' => 'ศรีนวลจันทร์',
+            'user_verified_at' => now(),
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ])->assignRole([Role::where('name', 'Admin')->first()->id]);

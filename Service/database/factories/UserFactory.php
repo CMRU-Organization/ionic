@@ -9,9 +9,12 @@ use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
+        'userid' => $faker->name,
+        'studentcode' => $faker->unique()->uuid,
+        'prefixname' => $faker->unique()->titleFemale,
+        'studentname' => $faker->unique()->firstName,
+        'studentsurname' => $faker->unique()->lastName,
+        'user_verified_at' => now(),
         'password' => bcrypt('password'),
         'remember_token' => Str::random(10),
     ];

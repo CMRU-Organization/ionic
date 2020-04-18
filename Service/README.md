@@ -151,3 +151,15 @@ exit
 https://www.tutsmake.com/laravel-command-php-artisan-serve-not-working-properly/
 php -S localhost:9000 -t public/
 php -S  127.0.0.1:9000 -t public/
+
+
+
+*** install oracle driver ***
+https://help.ubuntu.com/community/Oracle%20Instant%20Client
+https://pecl.php.net/package/oci8/2.1.8/windows
+https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html
+
+**use this =>*https://blogs.oracle.com/opal/installing-xampp-for-php-and-oracle-database
+https://github.com/yajra/laravel-oci8
+http://localhost/dashboard/phpinfo.php
+https://pecl.php.net/package/oci8/2.2.0/windows

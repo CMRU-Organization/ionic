@@ -3,13 +3,14 @@
 namespace Illuminate\Translation;
 
 use Countable;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Traits\Macroable;
 use Illuminate\Contracts\Translation\Loader;
-use Illuminate\Support\NamespacedItemResolver;
 use Illuminate\Contracts\Translation\Translator as TranslatorContract;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\Support\NamespacedItemResolver;
+use Illuminate\Support\Str;
+use Illuminate\Support\Traits\Macroable;
+use InvalidArgumentException;
 
 class Translator extends NamespacedItemResolver implements TranslatorContract
 {
@@ -92,7 +93,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      * Get the translation for the given key.
      *
      * @param  string  $key
-     * @param  array   $replace
+     * @param  array  $replace
      * @param  string|null  $locale
      * @param  bool  $fallback
      * @return string|array
@@ -139,7 +140,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      *
      * @param  string  $key
      * @param  \Countable|int|array  $number
-     * @param  array   $replace
+     * @param  array  $replace
      * @param  string|null  $locale
      * @return string
      */
@@ -181,7 +182,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      * @param  string  $group
      * @param  string  $locale
      * @param  string  $item
-     * @param  array   $replace
+     * @param  array  $replace
      * @return string|array|null
      */
     protected function getLine($namespace, $group, $locale, $item, array $replace)
@@ -205,7 +206,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      * Make the place-holder replacements on a line.
      *
      * @param  string  $line
-     * @param  array   $replace
+     * @param  array  $replace
      * @return string
      */
     protected function makeReplacements($line, array $replace)
@@ -406,6 +407,10 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      */
     public function setLocale($locale)
     {
+        if (Str::contains($locale, ['.', '/', '\\'])) {
+            throw new InvalidArgumentException('Invalid characters present in locale.');
+        }
+
         $this->locale = $locale;
     }
 
