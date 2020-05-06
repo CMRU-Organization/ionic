@@ -164,7 +164,7 @@ class AuthController extends BaseController
         $db = env('ORACLE_DB_CON');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
             echo "Successfully connected to Oracle.\n";
-            $query = "select * from SYSTEM.MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='" . $user->studentcode . "'";
+            $query = "select * from SYSTEM.MOBILE_STUDENTGRADES  WHERE STUDENTCODE='" . $user->studentcode . "' order by ACADYEAR,SEMESTER,COURSECODE";
             $s = oci_parse($c, $query);
             if (!$s) {
                 $m = oci_error($c);
@@ -177,13 +177,24 @@ class AuthController extends BaseController
                 trigger_error('Could not execute statement: ' . $m['message'], E_USER_ERROR);
                 return $this->sendError('Could not execute statement: ' . $m['message'], [], 400);
             }
-
-            if (($row = oci_fetch_object($s)) != false) {
-                return $this->sendResponse($row);
-
-            } else {
-                return $this->sendError('Not found user profile !!.', [], 400);
+            $responseArray = [];
+            while(($row = oci_fetch_object($s)) != false) {
+/*                array_push($responseArray, (object)[
+                        'STUDENTCODE' => $row->STUDENTCODE,
+                        'STUDENTID' =>  $row->STUDENTID,
+                        'ACADYEAR' =>  $row->ACADYEAR,
+                        'SEMESTER' =>  $row->SEMESTER,
+                        'COURSEID' =>  $row->COURSEID,
+                        'COURSECODE' =>  $row->COURSECODE,
+                        'COURSENAME' =>  $row->COURSENAME,
+                        'SECTION' =>  $row->SECTION,
+                        'GRADE' =>  $row->GRADE,
+                        'GPA' =>  $row->GPA,
+                        'GPAX' =>  $row->GPAX
+                    ]);*/
+                $responseArray[] = $row;
             }
+            return $this->sendResponse($responseArray);
 
             OCILogoff($c);
 
@@ -193,7 +204,7 @@ class AuthController extends BaseController
             return $this->sendError("Connection oracle failed." . $err[text], [], 400);
         }
 
-        return $this->sendError('Not found user profile !.', [], 400);
+        return $this->sendError('Not found user grade !.', [], 400);
     }
 
 }
