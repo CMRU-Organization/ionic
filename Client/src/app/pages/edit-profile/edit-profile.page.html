@@ -10,8 +10,8 @@
 <ion-content class="profile">
   <ion-card no-margin>
     <ion-card-content class="bg-profile">
-      <img src="https://reg4.cmru.ac.th/registrar/getstudentimageftp.asp?id=58153028&fbclid=IwAR32mSBjP4y0Ne53u9ONzmhoW6eNwDAuB1qIGSFUyZprV_8BtVwsf5I-KJg">
-      <h1 class="fw500">{{profile?.name}}</h1>
+      <img src="https://reg4.cmru.ac.th/registrar/getstudentimageftp.asp?id={{profile?.STUDENTCODE}}&fbclid=IwAR32mSBjP4y0Ne53u9ONzmhoW6eNwDAuB1qIGSFUyZprV_8BtVwsf5I-KJg">
+      <h1 class="fw500">{{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}</h1>
       <h2 color="light" margin-bottom>Student</h2>
     </ion-card-content>
     <ion-grid fixed no-padding>
@@ -20,17 +20,92 @@
 
           <ion-list margin-bottom>
             <ion-list-header color="light">
-              <ion-label class="fw700">Profile</ion-label>
+              <ion-label class="fw700">ข้อมูลด้านการศึกษา</ion-label>
             </ion-list-header>
 
             <ion-item>
-              <ion-label color="dark" position="stacked">Full Name:</ion-label>
-              <ion-label>{{profile?.name}}</ion-label>
+              <ion-label color="dark" position="stacked">รหัสประจำตัว</ion-label>
+              <ion-label>{{profile?.STUDENTCODE}}</ion-label>
             </ion-item>
 
             <ion-item>
-              <ion-label color="dark" position="stacked">Email:</ion-label>
-              <ion-label>{{profile?.email}}</ion-label>
+              <ion-label color="dark" position="stacked">เลขที่บัตรประชาชน</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">ชื่อ</ion-label>
+              <ion-label>{{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">ชื่ออังกฤษ</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">คณะ</ion-label>
+              <ion-label>{{profile?.FACULTYNAME}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">สาขาวิชา</ion-label>
+              <ion-label>{{profile?.PROGRAMNAMECERTIFY}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">วิชาโท</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">ระดับการศึกษา</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">ชื่อปริญญา</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">ปีที่เข้า</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">สถานะภาพ</ion-label>
+              <ion-label>{{profile?.BYTEDES}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">วันจบการศึกษา</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">จบการศึกษา</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">วิธีรับเข้า</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">วิฒิก่อนเข้ารับการศึกษา</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">จบการศึกษาจาก</ion-label>
+              <ion-label>-</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">อ.ที่ปรึกษา</ion-label>
+              <ion-label>-</ion-label>
             </ion-item>
 
           </ion-list>

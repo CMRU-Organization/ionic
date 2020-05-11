@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
 
     this.onLoginForm = this.formBuilder.group({
-      'email': [null, Validators.compose([
+      'studentcode': [null, Validators.compose([
         Validators.required
       ])],
       'password': [null, Validators.compose([
@@ -54,12 +54,11 @@ export class LoginPage implements OnInit {
   async forgotPass() {
     const alert = await this.alertCtrl.create({
       header: 'Forgot Password?',
-      message: 'Enter you email address to send a reset link password.',
+      message: 'Enter you studentcode address to send a reset link password.',
       inputs: [
         {
-          name: 'email',
-          type: 'email',
-          placeholder: 'Email'
+          name: 'studentcode',
+          placeholder: 'studentcode'
         }
       ],
       buttons: [
@@ -107,16 +106,16 @@ export class LoginPage implements OnInit {
 
   goToHome() {
     console.log("Login..");
-    this.authService.login(this.onLoginForm.value.email, this.onLoginForm.value.password).subscribe(
+    this.authService.login(this.onLoginForm.value.studentcode, this.onLoginForm.value.password).subscribe(
         data => {
           this.alertService.presentToast("Logged In");
         },
         error => {
           console.log(error);
-          this.onLoginForm.value.errorLogin = "Username or password not correct";
+          this.onLoginForm.value.errorLogin = "Student code or password not correct";
         },
         () => {
-          this.storage.setItem('email', this.onLoginForm.value.email)
+          this.storage.setItem('studentcode', this.onLoginForm.value.studentcode)
 
           this.dismissLogin();
           this.navCtrl.navigateRoot('/home-results');

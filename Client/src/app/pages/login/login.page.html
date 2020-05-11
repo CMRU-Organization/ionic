@@ -19,11 +19,11 @@
     <ion-item no-padding class="animated fadeInUp">
       <ion-label position="floating">
         <ion-icon name="mail" item-start></ion-icon>
-        Email
+        รหัสนักศึกษา
       </ion-label>
-      <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+      <ion-input color="secondary" type="text" formControlName="studentcode"></ion-input>
     </ion-item>
-    <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
+    <p ion-text class="text08" *ngIf="onLoginForm.get('studentcode').touched && onLoginForm.get('studentcode').hasError('required')">
       <ion-text color="warning">
         Required Field
       </ion-text>
@@ -32,7 +32,7 @@
     <ion-item no-padding class="animated fadeInUp">
       <ion-label position="floating">
         <ion-icon name="lock" item-start></ion-icon>
-        Password
+        รหัสผ่าน
       </ion-label>
       <ion-input color="secondary" type="password" formControlName="password"></ion-input>
     </ion-item>

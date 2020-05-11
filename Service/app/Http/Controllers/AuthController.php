@@ -102,9 +102,51 @@ class AuthController extends BaseController
 
     public function profile()
     {
+/*        $userId = Auth::user()->id;
+        $user = User::with('roles')->where('id', $userId)->firstOrFail();
+        return $this->sendResponse($user);*/
+
+        //check user mysql
         $userId = Auth::user()->id;
         $user = User::with('roles')->where('id', $userId)->firstOrFail();
-        return $this->sendResponse($user);
+
+        //checking all profile oracle
+        $username = env('ORACLE_DB_USERNAME');
+        $password = env('ORACLE_DB_PASSWORD');
+        $db = env('ORACLE_DB_CON');
+        if ($c = OCILogon($username, $password, $db, 'utf8')) {
+            //echo "Successfully connected to Oracle.\n";
+            $query = "select * from SYSTEM.MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='" . $user->studentcode . "'";
+            //echo $query;
+            $s = oci_parse($c, $query);
+            if (!$s) {
+                $m = oci_error($c);
+                trigger_error('Could not parse statement: ' . $m['message'], E_USER_ERROR);
+                return $this->sendError('Could not parse statement: ' . $m['message'], [], 400);
+            }
+            $r = oci_execute($s);
+            if (!$r) {
+                $m = oci_error($s);
+                trigger_error('Could not execute statement: ' . $m['message'], E_USER_ERROR);
+                return $this->sendError('Could not execute statement: ' . $m['message'], [], 400);
+            }
+
+            if (($row = oci_fetch_object($s)) != false) {
+                return $this->sendResponse($row);
+
+            } else {
+                return $this->sendError('Not found user profile !!.', [], 400);
+            }
+
+            OCILogoff($c);
+
+        } else {
+            $err = OCIError();
+            echo "Connection failed." . $err[text];
+            return $this->sendError("Connection oracle failed." . $err[text], [], 400);
+        }
+
+        return $this->sendError('Not found user profile !.', [], 400);
     }
 
     public function checkprofile()
@@ -118,9 +160,9 @@ class AuthController extends BaseController
         $password = env('ORACLE_DB_PASSWORD');
         $db = env('ORACLE_DB_CON');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
-            echo "Successfully connected to Oracle.\n";
+            //echo "Successfully connected to Oracle.\n";
             $query = "select * from SYSTEM.MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='" . $user->studentcode . "'";
-            echo $query;
+            //echo $query;
             $s = oci_parse($c, $query);
             if (!$s) {
                 $m = oci_error($c);
@@ -163,7 +205,7 @@ class AuthController extends BaseController
         $password = env('ORACLE_DB_PASSWORD');
         $db = env('ORACLE_DB_CON');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
-            echo "Successfully connected to Oracle.\n";
+            //echo "Successfully connected to Oracle.\n";
             $query = "select * from SYSTEM.MOBILE_STUDENTGRADES  WHERE STUDENTCODE='" . $user->studentcode . "' order by ACADYEAR,SEMESTER,COURSECODE";
             $s = oci_parse($c, $query);
             if (!$s) {
