@@ -12,6 +12,7 @@ import {
 import {AuthService} from "../../services/auth.service";
 import {AlertService} from "../../services/alert.service";
 import {NativeStorage} from "@ionic-native/native-storage/ngx";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,8 @@ export class LoginPage implements OnInit {
     private authService: AuthService,
     private alertService: AlertService,
     private storage: NativeStorage,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private appComponent: AppComponent
   ) { }
 
   ionViewWillEnter() {
@@ -49,6 +51,7 @@ export class LoginPage implements OnInit {
       ])],
       'errorLogin': [null]
     });
+
   }
 
   async forgotPass() {
@@ -115,7 +118,13 @@ export class LoginPage implements OnInit {
           this.onLoginForm.value.errorLogin = "Student code or password not correct";
         },
         () => {
-          this.storage.setItem('studentcode', this.onLoginForm.value.studentcode)
+          this.storage.setItem('studentcode', this.onLoginForm.value.studentcode);
+
+          console.log("getProfile..");
+          this.authService.user().subscribe(response => {
+            console.log(response);
+            this.appComponent.profile = response.data;
+          });
 
           this.dismissLogin();
           this.navCtrl.navigateRoot('/home-results');

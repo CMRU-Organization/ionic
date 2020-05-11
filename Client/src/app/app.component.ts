@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -16,8 +16,7 @@ import {NativeStorage} from "@ionic-native/native-storage/ngx";
 export class AppComponent {
 
   public appPages: Array<Pages>;
-  public name:any;
-  public email:any;
+  public profile : any;
 
   constructor(
       private authService: AuthService,
@@ -48,9 +47,6 @@ export class AppComponent {
         icon: 'cog'
       }
     ];
-
-    this.name =  "Testing name";
-    this.email =  "Testing email";
 
     this.initializeApp();
   }

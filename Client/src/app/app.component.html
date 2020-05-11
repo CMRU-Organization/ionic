@@ -6,15 +6,15 @@
 
           <ion-item margin-bottom>
             <ion-avatar slot="start" class="user-avatar">
-              <img src="https://reg4.cmru.ac.th/registrar/getstudentimageftp.asp?id=58153028&fbclid=IwAR32mSBjP4y0Ne53u9ONzmhoW6eNwDAuB1qIGSFUyZprV_8BtVwsf5I-KJg">
+              <img src="https://reg4.cmru.ac.th/registrar/getstudentimageftp.asp?id={{profile?.STUDENTCODE}}&fbclid=IwAR32mSBjP4y0Ne53u9ONzmhoW6eNwDAuB1qIGSFUyZprV_8BtVwsf5I-KJg">
             </ion-avatar>
             <ion-label>
               <ion-text color="medium">
-                <h1><strong>{{name}}</strong></h1>
+                <h1><strong>{{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}</strong></h1>
               </ion-text>
               <ion-text color="secondary">
                 <h3>
-                  {{email}}
+                  {{profile?.STUDENTCODE}}
                 </h3>
               </ion-text>
               <ion-menu-toggle class="mto" auto-hide="false">

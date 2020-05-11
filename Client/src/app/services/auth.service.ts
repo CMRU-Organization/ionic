@@ -76,6 +76,32 @@ export class AuthService {
             )
     }
 
+    checkprofile() {
+        const headers = new HttpHeaders({
+            'Authorization': "Bearer "+this.token.data
+        });
+
+        return this.http.get<any>(this.env.API_URL + '/checkprofile ', { headers: headers })
+            .pipe(
+                tap(user => {
+                    return user;
+                })
+            )
+    }
+
+    mygrade() {
+        const headers = new HttpHeaders({
+            'Authorization': "Bearer "+this.token.data
+        });
+
+        return this.http.get<any>(this.env.API_URL + '/mygrade ', { headers: headers })
+            .pipe(
+                tap(data => {
+                    return data;
+                })
+            )
+    }
+
     getToken() {
         return this.storage.getItem('token').then(
             data => {
