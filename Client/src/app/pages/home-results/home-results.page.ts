@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   NavController,
   AlertController,
@@ -7,21 +7,20 @@ import {
   PopoverController,
   ModalController } from '@ionic/angular';
 
-// Modals
-import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
 import { ImagePage } from './../modal/image/image.page';
-// Call notifications test by Popover and Custom Component.
 import { NotificationsComponent } from './../../components/notifications/notifications.component';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-home-results',
   templateUrl: './home-results.page.html',
   styleUrls: ['./home-results.page.scss']
 })
-export class HomeResultsPage {
-  searchKey = '';
+export class HomeResultsPage implements OnInit {
   yourLocation = '123 Test Street';
   themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
+
+  public mygrades : any;
 
   constructor(
     public navCtrl: NavController,
@@ -29,10 +28,18 @@ export class HomeResultsPage {
     public popoverCtrl: PopoverController,
     public alertCtrl: AlertController,
     public modalCtrl: ModalController,
-    public toastCtrl: ToastController
-  ) {
+    public toastCtrl: ToastController,
+    private authService: AuthService
+  ) {}
 
+  ngOnInit() {
+    console.log("get mygrade..");
+    this.authService.checkprofile().subscribe(response => {
+      console.log(response);
+      this.mygrades = response.data;
+    });
   }
+
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
@@ -79,13 +86,6 @@ export class HomeResultsPage {
       ]
     });
     changeLocation.present();
-  }
-
-  async searchFilter () {
-    const modal = await this.modalCtrl.create({
-      component: SearchFilterPage
-    });
-    return await modal.present();
   }
 
   async presentImage(image: any) {

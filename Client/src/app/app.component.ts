@@ -39,13 +39,6 @@ export class AppComponent {
         direct: 'forward',
         icon: 'information-circle-outline'
       },
-
-      {
-        title: 'ตั้งค่า',
-        url: '/settings',
-        direct: 'forward',
-        icon: 'cog'
-      }
     ];
 
     this.initializeApp();
