@@ -1,3 +1,13 @@
+<style>
+  .bgcolor {
+    background: #ffffff;
+    border: 1px solid darkgray;
+  }
+  .header-style{
+    font-weight: bold;
+    font-size: 16px;
+  }
+</style>
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
@@ -19,17 +29,91 @@
 
 <ion-content>
   <div class="bg-profile" text-center padding>
-    <ion-menu-toggle auto-hide="false" *ngFor="let g of mygrades">
+    <ion-menu-toggle auto-hide="false">
       <ion-item color="primary">
         <ion-icon slot="start" color="light"></ion-icon>
         <ion-label>
-          {{g.STUDENTCODE}}
+          {{profile.STUDENTCODE}} : {{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}
         </ion-label>
       </ion-item>
     </ion-menu-toggle>
-
-    <img width="1000" src="assets/img/84324918_219266655932156_5778756962078425088_n.png">
+<!--    <img width="1000" src="assets/img/84324918_219266655932156_5778756962078425088_n.png">-->
   </div>
+  <ion-grid>
+    <ion-row *ngFor ="let acd of arrayGrade.row" >
+      <ion-col>
+        <div>
+          <ion-grid>
+            <ion-row *ngFor ="let semes of acd.Semester" >
+              <ion-col className="ion-align-items-center">
+                <div>
+                  <div class="header-style" text-center>ภาคการศึกษาที่ {{semes.Semester}}/{{acd.Acadyear}}</div>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col class="bgcolor">
+                        <div>
+                          รหัสวิชา
+                        </div>
+                      </ion-col>
+                      <ion-col class="bgcolor">
+                        <div>
+                          ชื่อวิชา
+                        </div>
+                      </ion-col>
+                      <ion-col class="bgcolor">
+                        <div>
+                          Sec.
+                        </div>
+                      </ion-col>
+                      <ion-col class="bgcolor">
+                        <div>
+                          หน่วยกิต
+                        </div>
+                      </ion-col>
+                      <ion-col class="bgcolor">
+                        <div>
+                          เกรต
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngFor ="let cours of semes.ChildCourse" >
+                      <ion-col class="bgcolor">
+                        <div>
+                          {{cours.COURSECODE}}
+                        </div>
+                      </ion-col>
+                      <ion-col class="bgcolor">
+                        <div>
+                          {{cours.COURSENAME}}
+                        </div>
+                      </ion-col>
+                      <ion-col class="bgcolor">
+                        <div>
+                          {{cours.SECTION}}
+                        </div>
+                      </ion-col>
+                      <ion-col class="bgcolor">
+                        <div>
+                         3.0
+                        </div>
+                      </ion-col>
+                      <ion-col class="bgcolor">
+                        <div>
+                          {{cours.GRADE}}
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+
+
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
   

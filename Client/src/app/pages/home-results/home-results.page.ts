@@ -20,7 +20,12 @@ export class HomeResultsPage implements OnInit {
   yourLocation = '123 Test Street';
   themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
 
-  public mygrades : any;
+  public profile : any;
+  public arrayGrade = {
+    STUDENTID:"",
+    STUDENTCODE:"",
+    row:[]
+  };
 
   constructor(
     public navCtrl: NavController,
@@ -33,11 +38,60 @@ export class HomeResultsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("get mygrade..");
+
+    console.log("getProfile..");
     this.authService.checkprofile().subscribe(response => {
       console.log(response);
-      this.mygrades = response.data;
+      this.profile = response.data;
     });
+
+    console.log("get mygrade..");
+    this.authService.mygrade().subscribe(response => {
+      console.log(response);
+
+      let i;
+      let j;
+      let k;
+
+    let dataAcadyearRows = response.data.map(item => item.ACADYEAR).filter((value, index, self) => self.indexOf(value) === index);
+    for (i = 0; i < dataAcadyearRows.length; i++) {
+      let acadyear = {Acadyear:"", Semester: []};
+      let allDataAcadyears = response.data.filter(function (e) {
+        return e.ACADYEAR == dataAcadyearRows[i];
+      });
+
+      this.arrayGrade.STUDENTID = allDataAcadyears[0].STUDENTID;
+      this.arrayGrade.STUDENTCODE = allDataAcadyears[0].STUDENTCODE;
+      acadyear.Acadyear = allDataAcadyears[0].ACADYEAR;
+
+      let dataSemesterRows = allDataAcadyears.map(item => item.SEMESTER).filter((value, index, self) => self.indexOf(value) === index);
+      for (j = 0; j < dataSemesterRows.length; j++) {
+        let semester = {Semester:"", ChildCourse:[], GPA: "", GPAX: ""};
+        semester.Semester = dataSemesterRows[j];
+
+        let allDataSemesters = allDataAcadyears.filter(function (e) {
+          return e.SEMESTER == dataSemesterRows[j];
+        });
+
+        semester.GPA = allDataSemesters[0].GPA;
+        semester.GPAX = allDataSemesters[0].GPAX;
+
+        for (k = 0; k < allDataSemesters.length; k++) {
+          semester.ChildCourse.push({
+            COURSEID: allDataSemesters[k].COURSEID,
+            COURSECODE: allDataSemesters[k].COURSECODE,
+            COURSENAME: allDataSemesters[k].COURSENAME,
+            SECTION: allDataSemesters[k].SECTION,
+            GRADE: allDataSemesters[k].GRADE
+          });
+        }
+        acadyear.Semester.push(semester);
+      }
+
+      this.arrayGrade.row.push(acadyear);
+    }
+  });
+
   }
 
 
