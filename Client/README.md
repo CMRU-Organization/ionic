@@ -165,3 +165,5 @@ $ cordova prepare
 
 >>>>>
 ionic cordova run android -l -c --native-run
+
+ionic cordova run android -l -c --native-run

@@ -27,8 +27,8 @@ class AuthController extends BaseController
             $password = env('ORACLE_DB_PASSWORD');
             $db = env('ORACLE_DB_CON');
             if ($c = OCILogon($username, $password, $db, 'utf8')) {
-                echo "Successfully connected to Oracle.\n";
-                $query = "select * from SYSTEM.MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
+                //echo "Successfully connected to Oracle.\n";
+                $query = "select * from AVSREG.MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
                 $s = oci_parse($c, $query);
                 if (!$s) {
                     $m = oci_error($c);
@@ -127,7 +127,7 @@ class AuthController extends BaseController
         $db = env('ORACLE_DB_CON');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
             //echo "Successfully connected to Oracle.\n";
-            $query = "select * from SYSTEM.MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='" . $user->studentcode . "'";
+            $query = "select * from AVSREG.MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='" . $user->studentcode . "'";
             //echo $query;
             $s = oci_parse($c, $query);
             if (!$s) {
@@ -172,7 +172,7 @@ class AuthController extends BaseController
         $db = env('ORACLE_DB_CON');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
             //echo "Successfully connected to Oracle.\n";
-            $query = "select * from SYSTEM.MOBILE_STUDENTGRADES  WHERE STUDENTCODE='" . $user->studentcode . "' order by ACADYEAR,SEMESTER,COURSECODE";
+            $query = "select * from AVSREG.MOBILE_STUDENTGRADES  WHERE STUDENTCODE='" . $user->studentcode . "' order by ACADYEAR,SEMESTER,COURSECODE";
             $s = oci_parse($c, $query);
             if (!$s) {
                 $m = oci_error($c);
