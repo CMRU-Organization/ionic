@@ -1,9 +1,13 @@
 <style>
   .bgcolor {
     background: #ffffff;
-    border: 1px solid darkgray;
+    border: 0.1px solid lightgray;
   }
   .header-style{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .header{
     font-weight: bold;
     font-size: 16px;
   }
@@ -28,10 +32,9 @@
 </ion-header>
 
 <ion-content>
-  <div class="bg-profile" text-center padding>
+  <div class="bg-profile">
     <ion-menu-toggle auto-hide="false">
       <ion-item color="primary">
-        <ion-icon slot="start" color="light"></ion-icon>
         <ion-label>
           {{profile.STUDENTCODE}} : {{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}
         </ion-label>
@@ -51,27 +54,27 @@
                   <ion-grid>
                     <ion-row>
                       <ion-col class="bgcolor">
-                        <div>
+                        <div class="header" text-center>
                           รหัสวิชา
                         </div>
                       </ion-col>
-                      <ion-col class="bgcolor">
-                        <div>
+                      <ion-col class="bgcolor"  size-md="5" >
+                        <div class="header" text-center>
                           ชื่อวิชา
                         </div>
                       </ion-col>
                       <ion-col class="bgcolor">
-                        <div>
+                        <div  class="header"  text-center>
                           Sec.
                         </div>
                       </ion-col>
                       <ion-col class="bgcolor">
-                        <div>
+                        <div  class="header" text-center>
                           หน่วยกิต
                         </div>
                       </ion-col>
-                      <ion-col class="bgcolor">
-                        <div>
+                      <ion-col  class="bgcolor">
+                        <div class="header" text-center>
                           เกรต
                         </div>
                       </ion-col>
@@ -82,7 +85,7 @@
                           {{cours.COURSECODE}}
                         </div>
                       </ion-col>
-                      <ion-col class="bgcolor">
+                      <ion-col class="bgcolor" size-md="5" >
                         <div>
                           {{cours.COURSENAME}}
                         </div>
