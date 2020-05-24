@@ -16,19 +16,21 @@ class AuthController extends BaseController
             'studentcode' => request('studentcode'),
             'password' => request('password')
         ];
+
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $token = $user->createToken('RestApi')->accessToken;
             return $this->sendResponse($token);
-        } else {
+        }else {
 
             //checking login oracle
             $username = env('ORACLE_DB_USERNAME');
             $password = env('ORACLE_DB_PASSWORD');
+            $ORACLE_DB_SCHEMA_PREFIX = env('ORACLE_DB_SCHEMA_PREFIX');
             $db = env('ORACLE_DB_CON');
             if ($c = OCILogon($username, $password, $db, 'utf8')) {
                 //echo "Successfully connected to Oracle.\n";
-                $query = "select * from AVSREG.MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
+                $query = "select * from " . $ORACLE_DB_SCHEMA_PREFIX . ".MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
                 $s = oci_parse($c, $query);
                 if (!$s) {
                     $m = oci_error($c);
@@ -43,6 +45,7 @@ class AuthController extends BaseController
                 }
 
                 if (($row = oci_fetch_object($s)) != false) {
+
                     // Use upper case attribute names for each standard Oracle column
                     $input['userid'] = $row->USERID;
                     $input['studentcode'] = $row->STUDENTCODE;
@@ -68,28 +71,27 @@ class AuthController extends BaseController
 
             return $this->sendError('Username or password wrong !.', [], 400);
         }
-
     }
 
-/*    public function register(Request $request)
-    {
-        $input = $request->all();
+    /*    public function register(Request $request)
+        {
+            $input = $request->all();
 
-        $validator = Validator::make($input, [
-            'studentname' => 'required',
-            'studentcode' => 'required|unique:users',
-            'password' => 'required',
-            'c_password' => 'required|same:password',
-        ]);
-        if ($validator->fails()) {
-            return $this->sendError('Validation error.', $validator->errors(), 400);
-        }
+            $validator = Validator::make($input, [
+                'studentname' => 'required',
+                'studentcode' => 'required|unique:users',
+                'password' => 'required',
+                'c_password' => 'required|same:password',
+            ]);
+            if ($validator->fails()) {
+                return $this->sendError('Validation error.', $validator->errors(), 400);
+            }
 
-        $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
-        $token = $user->createToken('RestApi')->accessToken;
-        return $this->sendResponse($token);
-    }*/
+            $input['password'] = bcrypt($input['password']);
+            $user = User::create($input);
+            $token = $user->createToken('RestApi')->accessToken;
+            return $this->sendResponse($token);
+        }*/
 
     public function logout()
     {
@@ -125,9 +127,10 @@ class AuthController extends BaseController
         $username = env('ORACLE_DB_USERNAME');
         $password = env('ORACLE_DB_PASSWORD');
         $db = env('ORACLE_DB_CON');
+        $ORACLE_DB_SCHEMA_PREFIX = env('ORACLE_DB_SCHEMA_PREFIX');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
             //echo "Successfully connected to Oracle.\n";
-            $query = "select * from AVSREG.MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='" . $user->studentcode . "'";
+            $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='" . $user->studentcode . "'";
             //echo $query;
             $s = oci_parse($c, $query);
             if (!$s) {
@@ -170,9 +173,10 @@ class AuthController extends BaseController
         $username = env('ORACLE_DB_USERNAME');
         $password = env('ORACLE_DB_PASSWORD');
         $db = env('ORACLE_DB_CON');
+        $ORACLE_DB_SCHEMA_PREFIX = env('ORACLE_DB_SCHEMA_PREFIX');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
             //echo "Successfully connected to Oracle.\n";
-            $query = "select * from AVSREG.MOBILE_STUDENTGRADES  WHERE STUDENTCODE='" . $user->studentcode . "' order by ACADYEAR,SEMESTER,COURSECODE";
+            $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".MOBILE_STUDENTGRADES  WHERE STUDENTCODE='" . $user->studentcode . "' order by ACADYEAR,SEMESTER,COURSECODE";
             $s = oci_parse($c, $query);
             if (!$s) {
                 $m = oci_error($c);
@@ -187,19 +191,19 @@ class AuthController extends BaseController
             }
             $responseArray = [];
             while(($row = oci_fetch_object($s)) != false) {
-/*                array_push($responseArray, (object)[
-                        'STUDENTCODE' => $row->STUDENTCODE,
-                        'STUDENTID' =>  $row->STUDENTID,
-                        'ACADYEAR' =>  $row->ACADYEAR,
-                        'SEMESTER' =>  $row->SEMESTER,
-                        'COURSEID' =>  $row->COURSEID,
-                        'COURSECODE' =>  $row->COURSECODE,
-                        'COURSENAME' =>  $row->COURSENAME,
-                        'SECTION' =>  $row->SECTION,
-                        'GRADE' =>  $row->GRADE,
-                        'GPA' =>  $row->GPA,
-                        'GPAX' =>  $row->GPAX
-                    ]);*/
+                /*                array_push($responseArray, (object)[
+                                        'STUDENTCODE' => $row->STUDENTCODE,
+                                        'STUDENTID' =>  $row->STUDENTID,
+                                        'ACADYEAR' =>  $row->ACADYEAR,
+                                        'SEMESTER' =>  $row->SEMESTER,
+                                        'COURSEID' =>  $row->COURSEID,
+                                        'COURSECODE' =>  $row->COURSECODE,
+                                        'COURSENAME' =>  $row->COURSENAME,
+                                        'SECTION' =>  $row->SECTION,
+                                        'GRADE' =>  $row->GRADE,
+                                        'GPA' =>  $row->GPA,
+                                        'GPAX' =>  $row->GPAX
+                                    ]);*/
                 $responseArray[] = $row;
             }
             return $this->sendResponse($responseArray);

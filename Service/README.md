@@ -163,3 +163,8 @@ https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32
 https://github.com/yajra/laravel-oci8
 http://localhost/dashboard/phpinfo.php
 https://pecl.php.net/package/oci8/2.2.0/windows
+
+
+php artisan passport:install
+php artisan passport:client --personal
+php artisan passport:client --personal --name={someName}
