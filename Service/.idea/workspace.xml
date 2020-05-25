@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="047d4dda-37ea-43bd-8b79-07f2f602ccd5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/src/app/services/env.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/app/services/env.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +252,7 @@
       <workItem from="1589595878874" duration="12002000" />
       <workItem from="1590314004986" duration="1391000" />
       <workItem from="1590315930263" duration="8113000" />
-      <workItem from="1590412098380" duration="1825000" />
+      <workItem from="1590412098380" duration="2696000" />
     </task>
     <servers />
   </component>
