@@ -17,11 +17,11 @@ class AuthController extends BaseController
             'password' => request('password')
         ];
 
-        if (Auth::attempt($credentials)) {
+/*        if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $token = $user->createToken('RestApi')->accessToken;
             return $this->sendResponse($token);
-        }else {
+        }else {*/
 
             //checking login oracle
             $username = env('ORACLE_DB_USERNAME');
@@ -45,17 +45,22 @@ class AuthController extends BaseController
                 }
 
                 if (($row = oci_fetch_object($s)) != false) {
-
-                    // Use upper case attribute names for each standard Oracle column
-                    $input['userid'] = $row->USERID;
-                    $input['studentcode'] = $row->STUDENTCODE;
-                    $input['prefixname'] = $row->PREFIXNAME;
-                    $input['studentname'] = $row->STUDENTNAME;
-                    $input['studentsurname'] = $row->STUDENTSURNAME;
-                    $input['password'] = bcrypt($row->PASSWORD);
-                    $user = User::create($input);
-                    $token = $user->createToken('RestApi')->accessToken;
-                    return $this->sendResponse($token);
+                    if (Auth::attempt($credentials)) {
+                        $user = Auth::user();
+                        $token = $user->createToken('RestApi')->accessToken;
+                        return $this->sendResponse($token);
+                    }else {
+                        // Use upper case attribute names for each standard Oracle column
+                        $input['userid'] = $row->USERID;
+                        $input['studentcode'] = $row->STUDENTCODE;
+                        $input['prefixname'] = $row->PREFIXNAME;
+                        $input['studentname'] = $row->STUDENTNAME;
+                        $input['studentsurname'] = $row->STUDENTSURNAME;
+                        $input['password'] = bcrypt($row->PASSWORD);
+                        $user = User::create($input);
+                        $token = $user->createToken('RestApi')->accessToken;
+                        return $this->sendResponse($token);
+                    }
 
                 } else {
                     return $this->sendError('Username or password wrong !!.', [], 400);
@@ -70,7 +75,7 @@ class AuthController extends BaseController
             }
 
             return $this->sendError('Username or password wrong !.', [], 400);
-        }
+       // }
     }
 
     /*    public function register(Request $request)
