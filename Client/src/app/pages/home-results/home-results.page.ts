@@ -82,7 +82,8 @@ export class HomeResultsPage implements OnInit {
             COURSECODE: allDataSemesters[k].COURSECODE,
             COURSENAME: allDataSemesters[k].COURSENAME,
             SECTION: allDataSemesters[k].SECTION,
-            GRADE: allDataSemesters[k].GRADE
+            GRADE: allDataSemesters[k].GRADE,
+            COURSEUNIT: allDataSemesters[k].COURSEUNIT,
           });
         }
         acadyear.Semester.push(semester);
