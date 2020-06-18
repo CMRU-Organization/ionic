@@ -89,6 +89,15 @@ export class AuthService {
             )
     }
 
+    checkprofileNoneAuthen($searchstudentcode) {
+        return this.http.get<any>(this.env.API_URL + '/checkprofile_none_authen?studentcode='+$searchstudentcode)
+            .pipe(
+                tap(user => {
+                    return user;
+                })
+            )
+    }
+
     mygrade() {
         const headers = new HttpHeaders({
             'Authorization': "Bearer "+this.token.data

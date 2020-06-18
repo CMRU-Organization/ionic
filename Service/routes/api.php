@@ -1,6 +1,7 @@
 <?php
 
 Route::post('login', 'AuthController@login')->name('auth.login');
+Route::get('checkprofile_none_authen', 'AuthController@checkprofile_none_authen')->name('auth.checkprofile_none_authen');
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('profile', 'AuthController@profile')->name('auth.profile');
