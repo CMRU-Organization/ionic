@@ -122,8 +122,10 @@ class AuthController extends BaseController
         return $this->sendResponse($object);
     }
 
-    public function checkprofile_none_authen($studentcode)
+    public function checkprofile_none_authen()
     {
+        $studentcode = request('studentcode');
+
         //checking all profile oracle
         $username = env('ORACLE_DB_USERNAME');
         $password = env('ORACLE_DB_PASSWORD');
@@ -131,7 +133,7 @@ class AuthController extends BaseController
         $ORACLE_DB_SCHEMA_PREFIX = env('ORACLE_DB_SCHEMA_PREFIX');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
             //echo "Successfully connected to Oracle.\n";
-            $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='" . $studentcode . "'";
+            $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".MOBILE_STUDENTALLINFO  WHERE STUDENTCODE='".$studentcode."'";
             //echo $query;
             $s = oci_parse($c, $query);
             if (!$s) {
