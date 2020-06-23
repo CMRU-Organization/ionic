@@ -91,6 +91,7 @@ export class HomeResultsPage implements OnInit {
 
       this.arrayGrade.row.push(acadyear);
     }
+
   });
 
   }

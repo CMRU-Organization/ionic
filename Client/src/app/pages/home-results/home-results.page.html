@@ -11,6 +11,16 @@
     font-weight: bold;
     font-size: 16px;
   }
+  .grid-style{
+    width: 100%;
+    font-size: 12px;
+  }
+  .grid-style>ion-row>ion-col:nth-child(-n+2){
+    min-width: 23%;
+  }
+  .grid-style>ion-row>ion-col:nth-last-child(-n+3){
+    text-align: center;
+  }
 </style>
 <ion-header>
   <ion-toolbar color="primary">
@@ -45,108 +55,104 @@
   <ion-grid>
     <ion-row *ngFor ="let acd of arrayGrade.row" >
       <ion-col>
-        <div>
-          <ion-grid>
-            <ion-row *ngFor ="let semes of acd.Semester" >
-              <ion-col className="ion-align-items-center">
-                <div>
-                  <div class="header-style" text-center>ภาคการศึกษาที่ {{semes.Semester}}/{{acd.Acadyear}}</div>
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col class="bgcolor">
-                        <div class="header" text-center>
-                          รหัสวิชา
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor"  size-md="5" >
-                        <div class="header" text-center>
-                          ชื่อวิชา
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor">
-                        <div  class="header"  text-center>
-                          Sec.
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor">
-                        <div  class="header" text-center>
-                          หน่วยกิต
-                        </div>
-                      </ion-col>
-                      <ion-col  class="bgcolor">
-                        <div class="header" text-center>
-                          เกรต
-                        </div>
-                      </ion-col>
-                    </ion-row>
-                    <ion-row *ngFor ="let cours of semes.ChildCourse" >
-                      <ion-col class="bgcolor">
-                        <div>
-                          {{cours.COURSECODE}}
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor" size-md="5" >
-                        <div>
-                          {{cours.COURSENAME}}
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor">
-                        <div>
-                          {{cours.SECTION}}
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor">
-                        <div>
-                          {{cours.COURSEUNIT}}
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor">
-                        <div>
-                          {{cours.GRADE}}
-                        </div>
-                      </ion-col>
-                    </ion-row>
-                    <ion-row>
-                      <ion-col class="bgcolor">
-                        <div class="header" text-center>
-                          ผลการศึกษา
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor"  size-md="5" >
-                        <div class="header" text-center>
-                          ปกติ
-                        </div>
-                      </ion-col>
-                    </ion-row>
-                    <ion-row>
-                      <ion-col class="bgcolor">
-                        <div class="header" text-center>
-                          GPA
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor"  size-md="5" >
-                        <div class="header" text-center>
-                          {{semes.GPA}}
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor">
-                        <div class="header" text-center>
-                          GPAX
-                        </div>
-                      </ion-col>
-                      <ion-col class="bgcolor"  size-md="5" >
-                        <div class="header" text-center>
-                          {{semes.GPAX}}
-                        </div>
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
+        <ion-item-group *ngFor ="let semes of acd.Semester">
+          <ion-item-divider>
+            <ion-label class="header-style">ภาคการศึกษาที่ {{semes.Semester}}/{{acd.Acadyear}}</ion-label>
+          </ion-item-divider>
 
-                </div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
+          <ion-item>
+            <ion-grid  class="grid-style">
+              <ion-row>
+                <ion-col class="bgcolor">
+                  <div class="header" text-center>
+                    รหัสวิชา
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor"  size-md="5" >
+                  <div class="header" text-center>
+                    ชื่อวิชา
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div  class="header"  text-center>
+                    Sec.
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div  class="header" text-center>
+                    หน่วยกิต
+                  </div>
+                </ion-col>
+                <ion-col  class="bgcolor">
+                  <div class="header" text-center>
+                    เกรต
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngFor ="let cours of semes.ChildCourse" >
+                <ion-col class="bgcolor">
+                  <div>
+                    {{cours.COURSECODE}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor" size-md="5" >
+                  <div>
+                    {{cours.COURSENAME}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div>
+                    {{cours.SECTION}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div>
+                    {{cours.COURSEUNIT}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div>
+                    {{cours.GRADE}}
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="bgcolor">
+                  <div class="header" text-center>
+                    ผลการศึกษา
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor"  size-md="5" >
+                  <div class="header" text-center>
+                    ปกติ
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="bgcolor">
+                  <div class="header" text-center>
+                    GPA
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor"  size-md="5" >
+                  <div class="header" text-center>
+                    {{semes.GPA}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div class="header" text-center>
+                    GPAX
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor"  size-md="5" >
+                  <div class="header" text-center>
+                    {{semes.GPAX}}
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-item-group>
       </ion-col>
     </ion-row>
   </ion-grid>
