@@ -1,0 +1,73 @@
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="theme-bg"></div>
+  <div class="auth-content">
+
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h4 no-margin>
+        <ion-text color="light" class="fw700">
+          <h3>มหาวิทยาลัยราชภัฏเชียงใหม่</h3>
+          <h2>Chiang Mai Rajabhat University</h2>
+        </ion-text>
+      </h4>
+    </div>
+    <div>
+      <br />
+
+      <!-- Searchbar in a Toolbar -->
+      <ion-toolbar>
+        <ion-searchbar [(ngModel)]="studentcode"></ion-searchbar>
+        <ion-button icon-left size="large" expand="full" shape="round" color="dark" (click)="goToCheck()" tappable>
+          <ion-icon name="log-in"></ion-icon>
+          ตรวจสอบสถานะ นักศึกษา
+        </ion-button>
+
+        <h3 style="text-align: center;color: red;"> <ion-label>{{errorMessage}}</ion-label></h3>
+
+      </ion-toolbar>
+      <ion-card-content class="bg-profile">
+
+      </ion-card-content>
+      <ion-list margin-bottom [ngStyle]="{'display': isActive}">
+        <ion-list-header color="light">
+          <ion-label class="fw700">ข้อมูลด้านการศึกษา</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label color="dark" position="stacked"></ion-label>
+          <img src="https://reg4.cmru.ac.th/registrar/getstudentimageftp.asp?id={{profile?.STUDENTCODE}}&fbclid=IwAR32mSBjP4y0Ne53u9ONzmhoW6eNwDAuB1qIGSFUyZprV_8BtVwsf5I-KJg">
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark" position="stacked">รหัสประจำตัว</ion-label>
+          <ion-label>{{profile?.STUDENTCODE}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark" position="stacked">ชื่อ</ion-label>
+          <ion-label>{{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark" position="stacked">คณะ</ion-label>
+          <ion-label>{{profile?.FACULTYNAME}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark" position="stacked">สาขาวิชา</ion-label>
+          <ion-label>{{profile?.PROGRAMNAMECERTIFY}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark" position="stacked">สถานะภาพ</ion-label>
+          <ion-label>{{profile?.BYTEDES}}</ion-label>
+        </ion-item>
+
+      </ion-list>
+
+    </div>
+
+
+  </div>
+</ion-content>
