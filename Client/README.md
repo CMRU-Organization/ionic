@@ -172,3 +172,13 @@ ionic cordova run android -l -c --native-run
 ionic cordova run android -l -c -d
 npm update caniuse-lite browserslist
 ionic cordova build android
+
+
+*** error localhost  ****
+
+cordova plugin add cordova-plugin-whitelist --save
+then found F:\CmruRespos\ionic\Client\platforms\android\app\src\main
+add ..
+<uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />

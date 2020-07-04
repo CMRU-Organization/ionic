@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionictheme.ionic4start" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionictheme.ionic4start" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://java.sun.com/xml/ns/j2ee" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>regapp.cmru.ac.th</name>
     <description>regapp.cmru.ac.th</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <author email="vit.nakon@gmail.com" href="http://www.regapp.cmru.ac.th/api">regapp.cmru.ac.th</author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-navigation href="http://localhost:8080/*" />
+    <allow-navigation href="http://www.regapp.cmru.ac.th/api" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -29,9 +29,10 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <allow-navigation href="localhost:8080/*" />
-    <allow-navigation href="https://foo.bar/api/index.php" />
     <platform name="android">
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -62,6 +63,4 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <allow-navigation href="http://www.regapp.cmru.ac.th/api" sessionid="e3b189b8" />
-    <allow-navigation href="http://localhost:8100" sessionid="b904b35c" />
 </widget>
