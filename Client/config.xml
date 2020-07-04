@@ -3,7 +3,7 @@
     <name>regapp.cmru.ac.th</name>
     <description>regapp.cmru.ac.th</description>
     <author email="firminoata@gmail.com" href="http://www.regapp.cmru.ac.th/api">regapp.cmru.ac.th</author>
-    <content original-src="index.html" src="http://localhost:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
