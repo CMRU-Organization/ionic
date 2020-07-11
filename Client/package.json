@@ -1,9 +1,9 @@
 {
-  "name": "ionic4-start-theme",
-  "description": "Ionic 4 Start Theme",
+  "name": "regapp.cmru.ac.th",
+  "description": "regapp.cmru.ac.th",
   "version": "1.0.0",
-  "author": "Ionic Theme",
-  "homepage": "https://ionictheme.com",
+  "author": "regcmru@gmail.com",
+  "homepage": "http://www.regapp.cmru.ac.th/api",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
