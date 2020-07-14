@@ -182,3 +182,12 @@ add ..
 <uses-permission android:name="android.permission.INTERNET" />
      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+     
+     ionic cordova resources
+     ionic cordova resources ios
+     ionic cordova resources android
+     
+      ionic cordova build --release android
+      
+      
+      keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
