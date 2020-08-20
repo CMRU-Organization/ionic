@@ -34,6 +34,18 @@ export class AppComponent {
         icon: 'home'
       },
       {
+        title: 'ตารางเรียน',
+        url: '/class-schedule',
+        direct: 'root',
+        icon: 'home'
+      },
+      {
+        title: 'ตารางสอน',
+        url: '/exam-schedule',
+        direct: 'root',
+        icon: 'home'
+      },
+      {
         title: 'ข่าวประชาสัมพันธ์',
         url: '/about',
         direct: 'forward',

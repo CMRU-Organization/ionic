@@ -11,4 +11,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('checkprofile', 'AuthController@checkprofile')->name('auth.checkprofile');
     Route::get('mygrade', 'AuthController@mygrade')->name('auth.mygrade');
 
+    Route::get('classSchedule', 'AuthController@classSchedule')->name('auth.classSchedule');
+    Route::get('examSchedule', 'AuthController@examSchedule')->name('auth.examSchedule');
+
 });

@@ -52,4 +52,8 @@ export class CheckPage implements OnInit {
     }
   }
 
+  goToLogin() {
+    this.navCtrl.navigateRoot('/login');
+  }
+
 }

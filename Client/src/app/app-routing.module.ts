@@ -7,7 +7,10 @@ const routes: Routes = [
   { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
   { path: 'edit-profile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'home-results', loadChildren: './pages/home-results/home-results.module#HomeResultsPageModule' },
-  { path: '', loadChildren: './pages/default/default.module#DefaultPageModule' },  { path: 'check', loadChildren: './pages/check/check.module#CheckPageModule' },
+  { path: '', loadChildren: './pages/default/default.module#DefaultPageModule' },
+  { path: 'check', loadChildren: './pages/check/check.module#CheckPageModule' },
+  { path: 'class-schedule', loadChildren: './pages/class-schedule/class-schedule.module#ClassSchedulePageModule' },
+  { path: 'exam-schedule', loadChildren: './pages/exam-schedule/exam-schedule.module#ExamSchedulePageModule' },
 
 
 ];

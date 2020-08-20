@@ -111,6 +111,32 @@ export class AuthService {
             )
     }
 
+    classSchedule() {
+        const headers = new HttpHeaders({
+            'Authorization': "Bearer "+this.token.data
+        });
+
+        return this.http.get<any>(this.env.API_URL + '/classSchedule ', { headers: headers })
+            .pipe(
+                tap(data => {
+                    return data;
+                })
+            )
+    }
+
+    examSchedule() {
+        const headers = new HttpHeaders({
+            'Authorization': "Bearer "+this.token.data
+        });
+
+        return this.http.get<any>(this.env.API_URL + '/examSchedule ', { headers: headers })
+            .pipe(
+                tap(data => {
+                    return data;
+                })
+            )
+    }
+
     getToken() {
         return this.storage.getItem('token').then(
             data => {

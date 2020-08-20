@@ -132,4 +132,8 @@ export class LoginPage implements OnInit {
     );
   }
 
+  goToCheck() {
+    this.navCtrl.navigateRoot('/check');
+  }
+
 }
