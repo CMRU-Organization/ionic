@@ -38,8 +38,8 @@ export class ExamSchedulePage implements OnInit {
       this.profile = response.data;
     });
 
-    console.log("get mygrade..");
-    this.authService.mygrade().subscribe(response => {
+    console.log("get exam-schedule.");
+    this.authService.examSchedule().subscribe(response => {
       console.log(response);
 
       let i;
@@ -47,41 +47,43 @@ export class ExamSchedulePage implements OnInit {
       let k;
 
       let dataAcadyearRows = response.data.map(item => item.ACADYEAR).filter((value, index, self) => self.indexOf(value) === index);
-      for (i = 0; i < dataAcadyearRows.length; i++) {
-        let acadyear = {Acadyear:"", Semester: []};
-        let allDataAcadyears = response.data.filter(function (e) {
-          return e.ACADYEAR == dataAcadyearRows[i];
-        });
-
-        this.arrayClassSchedule.STUDENTID = allDataAcadyears[0].STUDENTID;
-        this.arrayClassSchedule.STUDENTCODE = allDataAcadyears[0].STUDENTCODE;
-        acadyear.Acadyear = allDataAcadyears[0].ACADYEAR;
-
-        let dataSemesterRows = allDataAcadyears.map(item => item.SEMESTER).filter((value, index, self) => self.indexOf(value) === index);
-        for (j = 0; j < dataSemesterRows.length; j++) {
-          let semester = {Semester:"", ChildCourse:[]};
-          semester.Semester = dataSemesterRows[j];
-
-          let allDataSemesters = allDataAcadyears.filter(function (e) {
-            return e.SEMESTER == dataSemesterRows[j];
+      if(dataAcadyearRows.length>0) {
+        for (i = 0; i < 1; i++) {
+          let acadyear = {Acadyear: "", Semester: []};
+          let allDataAcadyears = response.data.filter(function (e) {
+            return e.ACADYEAR == dataAcadyearRows[i];
           });
 
-          for (k = 0; k < allDataSemesters.length; k++) {
-            semester.ChildCourse.push({
-              COURSECODE: allDataSemesters[k].COURSECODE,
-              COURSENAME: allDataSemesters[k].COURSENAME,
-              SECTION: allDataSemesters[k].SECTION,
-              EXAMDATE: allDataSemesters[k].EXAMDATE,
-              EXAMTIMEFROM: allDataSemesters[k].EXAMTIMEFROM,
-              EXAMTIMETO: allDataSemesters[k].EXAMTIMETO,
-              ROOMNAME: allDataSemesters[k].ROOMNAME,
-              EXAMCODE: allDataSemesters[k].EXAMCODE,
-            });
-          }
-          acadyear.Semester.push(semester);
-        }
+          this.arrayClassSchedule.STUDENTID = allDataAcadyears[0].STUDENTID;
+          this.arrayClassSchedule.STUDENTCODE = allDataAcadyears[0].STUDENTCODE;
+          acadyear.Acadyear = allDataAcadyears[0].ACADYEAR;
 
-        this.arrayClassSchedule.row.push(acadyear);
+          let dataSemesterRows = allDataAcadyears.map(item => item.SEMESTER).filter((value, index, self) => self.indexOf(value) === index);
+          for (j = 0; j < dataSemesterRows.length; j++) {
+            let semester = {Semester: "", ChildCourse: []};
+            semester.Semester = dataSemesterRows[j];
+
+            let allDataSemesters = allDataAcadyears.filter(function (e) {
+              return e.SEMESTER == dataSemesterRows[j];
+            });
+
+            for (k = 0; k < allDataSemesters.length; k++) {
+              semester.ChildCourse.push({
+                COURSECODE: allDataSemesters[k].COURSECODE,
+                COURSENAME: allDataSemesters[k].COURSENAME,
+                SECTION: allDataSemesters[k].SECTION,
+                EXAMDATE: allDataSemesters[k].EXAMDATE,
+                EXAMTIMEFROM: allDataSemesters[k].EXAMTIMEFROM,
+                EXAMTIMETO: allDataSemesters[k].EXAMTIMETO,
+                ROOMNAME: allDataSemesters[k].ROOMNAME,
+                EXAMCODE: allDataSemesters[k].EXAMCODE,
+              });
+            }
+            acadyear.Semester.push(semester);
+          }
+
+          this.arrayClassSchedule.row.push(acadyear);
+        }
       }
 
     });

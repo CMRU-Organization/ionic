@@ -30,7 +30,8 @@ class AuthController extends BaseController
             $db = env('ORACLE_DB_CON');
             if ($c = OCILogon($username, $password, $db, 'utf8')) {
                 //echo "Successfully connected to Oracle.\n";
-                $query = "select * from " . $ORACLE_DB_SCHEMA_PREFIX . ".MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
+                $query = "select * from " . $ORACLE_DB_SCHEMA_PREFIX . ".MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "'  ";
+               // $query = "select * from " . $ORACLE_DB_SCHEMA_PREFIX . ".MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
                 $s = oci_parse($c, $query);
                 if (!$s) {
                     $m = oci_error($c);

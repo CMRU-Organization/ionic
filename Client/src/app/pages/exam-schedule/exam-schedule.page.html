@@ -40,7 +40,7 @@
     <ion-menu-toggle auto-hide="false">
       <ion-item color="primary">
         <ion-label>
-          {{profile.STUDENTCODE}} : {{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}
+          {{profile?.STUDENTCODE}} : {{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}
         </ion-label>
       </ion-item>
     </ion-menu-toggle>
@@ -95,12 +95,12 @@
                 </ion-col>
                 <ion-col class="bgcolor">
                   <div>
-                    {{cours.SECTION}}
+                   -
                   </div>
                 </ion-col>
                 <ion-col class="bgcolor">
                   <div>
-                    {{cours.EXAMTIMEFROM}} -{{cours.EXAMTIMETO}}
+                    {{cours.EXAMTIMEFROM}}  - {{cours.EXAMTIMETO}}  ห้อง {{cours.ROOMNAME}}
                   </div>
                 </ion-col>
                 <ion-col class="bgcolor">
