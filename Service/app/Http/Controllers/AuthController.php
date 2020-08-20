@@ -30,8 +30,7 @@ class AuthController extends BaseController
             $db = env('ORACLE_DB_CON');
             if ($c = OCILogon($username, $password, $db, 'utf8')) {
                 //echo "Successfully connected to Oracle.\n";
-                $query = "select * from " . $ORACLE_DB_SCHEMA_PREFIX . ".MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "'  ";
-               // $query = "select * from " . $ORACLE_DB_SCHEMA_PREFIX . ".MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
+                $query = "select * from " . $ORACLE_DB_SCHEMA_PREFIX . ".MOBILE_STUDENTLOGIN  WHERE STUDENTCODE='" . request('studentcode') . "' AND PASSWORD ='" . request('password') . "'";
                 $s = oci_parse($c, $query);
                 if (!$s) {
                     $m = oci_error($c);
@@ -282,8 +281,7 @@ class AuthController extends BaseController
         $ORACLE_DB_SCHEMA_PREFIX = env('ORACLE_DB_SCHEMA_PREFIX');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
             //echo "Successfully connected to Oracle.\n";
-           // $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".mobile_studentenroll  WHERE STUDENTCODE='" . $user->studentcode . "' ";
-           $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".mobile_studentenroll  WHERE STUDENTCODE=62123001 ";
+            $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".mobile_studentenroll  WHERE STUDENTCODE='" . $user->studentcode . "' ";
             $s = oci_parse($c, $query);
             if (!$s) {
                 $m = oci_error($c);
@@ -326,8 +324,7 @@ class AuthController extends BaseController
         $ORACLE_DB_SCHEMA_PREFIX = env('ORACLE_DB_SCHEMA_PREFIX');
         if ($c = OCILogon($username, $password, $db, 'utf8')) {
             //echo "Successfully connected to Oracle.\n";
-           // $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".mobile_studentexam  WHERE STUDENTCODE='" . $user->studentcode . "' ";
-            $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".mobile_studentexam  WHERE STUDENTCODE=62123001 ";
+            $query = "select * from ".$ORACLE_DB_SCHEMA_PREFIX.".mobile_studentexam  WHERE STUDENTCODE='" . $user->studentcode . "' ";
             $s = oci_parse($c, $query);
             if (!$s) {
                 $m = oci_error($c);
