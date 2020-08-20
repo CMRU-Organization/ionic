@@ -17,7 +17,7 @@ import {AuthService} from "../../services/auth.service";
   styleUrls: ['./home-results.page.scss']
 })
 export class HomeResultsPage implements OnInit {
-  yourLocation = '123 Test Street';
+  yourLocation = 'Chiangmai';
   themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
 
   public profile : any;

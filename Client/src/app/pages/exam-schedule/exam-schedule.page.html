@@ -1,9 +1,120 @@
+<style>
+  .bgcolor {
+    background: #ffffff;
+    border: 0.1px solid lightgray;
+  }
+  .header-style{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .header{
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .grid-style{
+    width: 100%;
+    font-size: 12px;
+  }
+  .grid-style>ion-row>ion-col:nth-child(-n+2){
+    min-width: 23%;
+  }
+  .grid-style>ion-row>ion-col:nth-last-child(-n+3){
+    text-align: center;
+  }
+</style>
 <ion-header>
-  <ion-toolbar>
-    <ion-title>examSchedule</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="light">
+        <ion-text color="light" class="fw700">ตารางสอบนักศึกษา</ion-text>
+      </ion-text>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <div class="bg-profile">
+    <ion-menu-toggle auto-hide="false">
+      <ion-item color="primary">
+        <ion-label>
+          {{profile.STUDENTCODE}} : {{profile?.PREFIXNAME}} {{profile?.STUDENTNAME}} {{profile?.STUDENTSURNAME}}
+        </ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </div>
+  <ion-grid>
+    <ion-row *ngFor ="let acd of arrayClassSchedule.row" >
+      <ion-col>
+        <ion-item-group *ngFor ="let semes of acd.Semester">
+          <ion-item-divider>
+            <ion-label class="header-style">ภาคการศึกษาที่ {{semes.Semester}}/{{acd.Acadyear}}</ion-label>
+          </ion-item-divider>
+
+          <ion-item>
+            <ion-grid  class="grid-style">
+              <ion-row>
+                <ion-col class="bgcolor">
+                  <div class="header" text-center>
+                    รหัสวิชา
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor"  size-md="4">
+                  <div  class="header"  text-center>
+                    ชื่อวิชา
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div class="header" text-center>
+                    Sec.
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div  class="header" text-center>
+                    สอบกลางภาค
+                  </div>
+                </ion-col>
+                <ion-col  class="bgcolor">
+                  <div class="header" text-center>
+                    สอบปลายภาค
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngFor ="let cours of semes.ChildCourse" >
+                <ion-col class="bgcolor">
+                  <div>
+                    {{cours.COURSECODE}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor"  size-md="4">
+                  <div>
+                    {{cours.COURSENAME}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div>
+                    {{cours.SECTION}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div>
+                    {{cours.EXAMTIMEFROM}} -{{cours.EXAMTIMETO}}
+                  </div>
+                </ion-col>
+                <ion-col class="bgcolor">
+                  <div>
+                    {{cours.EXAMDATE}}
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-item>
+        </ion-item-group>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
