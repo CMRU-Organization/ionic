@@ -1,0 +1,4 @@
+http://regapp.cmru.ac.th/phpmyadmin/
+
+Username:regmobile
+password:knai007os

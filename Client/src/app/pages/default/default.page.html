@@ -25,7 +25,24 @@
         ระบบสารสนเทศสำหรับนักศึกษา
       </ion-button>
 
+      <br />
+      <ion-grid>
+        <ion-row justify-content-around>
+          <ion-col>
+            <ion-button expand="block" fill="clear">
+              <ion-icon slot="icon-only" name="mail"></ion-icon>&nbsp;
+              <a ng-repeat="contItems in arrayContacts"  style="color: white" size="small" expand="full" color="dark" class="item item-icon-left btn" href="https://docs.google.com/forms/d/e/1FAIpQLSclX7D7woTNJVYwuyI5pzlvJ8e9fMC3tmcU_8dhXcD7HJtF9w/viewform" target="_blank">
+        <span>
+          แบบประเมินความพึงพอใจ<br>การใช้งานแอปพลิเคชันบนเครือข่ายมือถือ
+        </span>
+              </a>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
     </div>
+
 
 
   </div>
