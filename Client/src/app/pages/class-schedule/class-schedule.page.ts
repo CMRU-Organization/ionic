@@ -167,6 +167,8 @@ export class ClassSchedulePage implements OnInit {
                 TIMEPERIODFROM: allDataSemesters[k].TIMEPERIODFROM,
                 TIMEPERIODTO: allDataSemesters[k].TIMEPERIODTO,
                 WEEKDAY: allDataSemesters[k].WEEKDAY,
+                OFFICERNAME: allDataSemesters[k].OFFICERNAME,
+                OFFICERSURNAME: allDataSemesters[k].OFFICERSURNAME,
                 PERIODTXT: periodTxt
               });
             }

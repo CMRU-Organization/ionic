@@ -73,3 +73,36 @@
         </div>
     </body>
 </html>
+
+
+<?php
+
+# Fill our vars and run on cli
+# $ php -f db-connect-test.php
+
+$dbname = 'regapp_db';
+$dbuser = 'regmobile';
+$dbpass = 'knai007os';
+$dbhost = 'localhost';
+
+$link = mysqli_connect($dbhost, $dbuser, $dbpass) or die("Unable to Connect to '$dbhost'");
+mysqli_select_db($link, $dbname) or die("Could not open the db '$dbname'");
+
+$test_query = "SHOW TABLES FROM $dbname";
+$result = mysqli_query($link, $test_query);
+
+$tblCnt = 0;
+while ($tbl = mysqli_fetch_array($result)) {
+    $tblCnt++;
+    #echo $tbl[0]."<br />\n";
+}
+
+if (!$tblCnt) {
+    echo "There are no tables<br />\n";
+    echo "Fail !!!! Connection \n";
+} else {
+    echo "Connection success full\n";
+    echo "There are $tblCnt tables<br />\n";
+}
+
+?>
